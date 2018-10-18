@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Solidity Linked List | Solidity Linked List</title>
+    <meta name="description" content="An utility library for using sorted linked list data structures in your Solidity project">
+    
+    
+    <link rel="preload" href="/solidity-linked-list/assets/css/styles.5ef0ccf5.css" as="style"><link rel="preload" href="/solidity-linked-list/assets/js/app.5ef0ccf5.js" as="script"><link rel="preload" href="/solidity-linked-list/assets/js/3.251e1c64.js" as="script"><link rel="prefetch" href="/solidity-linked-list/assets/css/1.styles.a85985f0.css"><link rel="prefetch" href="/solidity-linked-list/assets/js/1.a85985f0.js"><link rel="prefetch" href="/solidity-linked-list/assets/css/2.styles.0e16bfdf.css"><link rel="prefetch" href="/solidity-linked-list/assets/js/2.0e16bfdf.js">
+    <link rel="stylesheet" href="/solidity-linked-list/assets/css/styles.5ef0ccf5.css"><link rel="stylesheet" href="/solidity-linked-list/assets/css/1.styles.a85985f0.css"><link rel="stylesheet" href="/solidity-linked-list/assets/css/2.styles.0e16bfdf.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/solidity-linked-list/" class="home-link router-link-exact-active router-link-active"><!----> <span class="site-name">Solidity Linked List</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><!---->  <ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading open"><span>Solidity Linked List</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/solidity-linked-list/#install" class="sidebar-link">Install</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/solidity-linked-list/#usage" class="sidebar-link">Usage</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/solidity-linked-list/#code" class="sidebar-link">Code</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/solidity-linked-list/#listexists" class="sidebar-link">listExists</a></li><li class="sidebar-sub-header"><a href="/solidity-linked-list/#nodeexists" class="sidebar-link">nodeExists</a></li><li class="sidebar-sub-header"><a href="/solidity-linked-list/#sizeof" class="sidebar-link">sizeOf</a></li><li class="sidebar-sub-header"><a href="/solidity-linked-list/#getnode" class="sidebar-link">getNode</a></li><li class="sidebar-sub-header"><a href="/solidity-linked-list/#getadjacent" class="sidebar-link">getAdjacent</a></li><li class="sidebar-sub-header"><a href="/solidity-linked-list/#getnextnode" class="sidebar-link">getNextNode</a></li><li class="sidebar-sub-header"><a href="/solidity-linked-list/#getpreviousnode" class="sidebar-link">getPreviousNode</a></li><li class="sidebar-sub-header"><a href="/solidity-linked-list/#getsortedspot" class="sidebar-link">getSortedSpot</a></li><li class="sidebar-sub-header"><a href="/solidity-linked-list/#createlink" class="sidebar-link">createLink</a></li><li class="sidebar-sub-header"><a href="/solidity-linked-list/#insert" class="sidebar-link">insert</a></li><li class="sidebar-sub-header"><a href="/solidity-linked-list/#insertafter" class="sidebar-link">insertAfter</a></li><li class="sidebar-sub-header"><a href="/solidity-linked-list/#insertbefore" class="sidebar-link">insertBefore</a></li><li class="sidebar-sub-header"><a href="/solidity-linked-list/#remove" class="sidebar-link">remove</a></li><li class="sidebar-sub-header"><a href="/solidity-linked-list/#push" class="sidebar-link">push</a></li><li class="sidebar-sub-header"><a href="/solidity-linked-list/#pop" class="sidebar-link">pop</a></li></ul></li><li><a href="/solidity-linked-list/#development" class="sidebar-link">Development</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/solidity-linked-list/#install-dependencies" class="sidebar-link">Install dependencies</a></li><li class="sidebar-sub-header"><a href="/solidity-linked-list/#linter" class="sidebar-link">Linter</a></li><li class="sidebar-sub-header"><a href="/solidity-linked-list/#compile-and-test-the-contracts" class="sidebar-link">Compile and test the contracts</a></li></ul></li><li><a href="/solidity-linked-list/#license" class="sidebar-link">License</a><ul class="sidebar-sub-headers"></ul></li></ul></div></li></ul> </div> <div class="page"> <div class="content"><h1 id="solidity-linked-list"><a href="#solidity-linked-list" aria-hidden="true" class="header-anchor">#</a> Solidity Linked List</h1> <p><a href="https://www.npmjs.org/package/solidity-linked-list" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/npm/v/solidity-linked-list.svg?style=flat-square" alt="NPM Package"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> <a href="https://travis-ci.org/vittominacori/solidity-linked-list" target="_blank" rel="noopener noreferrer"><img src="https://travis-ci.org/vittominacori/solidity-linked-list.svg?branch=master" alt="Build Status"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> <a href="https://coveralls.io/github/vittominacori/solidity-linked-list?branch=master" target="_blank" rel="noopener noreferrer"><img src="https://coveralls.io/repos/github/vittominacori/solidity-linked-list/badge.svg?branch=master" alt="Coverage Status"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>An utility library for using sorted linked list data structures in your Solidity project.</p> <h2 id="install"><a href="#install" aria-hidden="true" class="header-anchor">#</a> Install</h2> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> <span class="token function">install</span> solidity-linked-list
+</code></pre></div><h2 id="usage"><a href="#usage" aria-hidden="true" class="header-anchor">#</a> Usage</h2> <div class="language-solidity extra-class"><pre class="language-text"><code>pragma solidity ^0.4.24;
+
+import &quot;solidity-linked-list/contracts/StructuredLinkedList.sol&quot;;
+
+
+contract MyContract {
+  using StructuredLinkedList for StructuredLinkedList.List;
+  
+  StructuredLinkedList.List list;
+  
+  // your stuff
+  // check contracts/mocks/ for samples
+}
+</code></pre></div><h2 id="code"><a href="#code" aria-hidden="true" class="header-anchor">#</a> Code</h2> <p>This repo contains:</p> <ul><li><a href="https://github.com/vittominacori/solidity-linked-list/blob/master/contracts/StructuredLinkedList.sol" target="_blank" rel="noopener noreferrer">StructuredLinkedList.sol<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul> <h3 id="listexists"><a href="#listexists" aria-hidden="true" class="header-anchor">#</a> listExists</h3> <div class="language-solidity extra-class"><pre class="language-text"><code>/**
+ * @dev Checks if the list exists
+ * @param self stored linked list from contract
+ * @return bool true if list exists, false otherwise
+ */
+function listExists(List storage self) internal view returns (bool);
+</code></pre></div><h3 id="nodeexists"><a href="#nodeexists" aria-hidden="true" class="header-anchor">#</a> nodeExists</h3> <div class="language-solidity extra-class"><pre class="language-text"><code>/**
+ * @dev Checks if the node exists
+ * @param self stored linked list from contract
+ * @param _node a node to search for
+ * @return bool true if node exists, false otherwise
+ */
+function nodeExists(List storage self, uint256 _node) internal view returns (bool);
+</code></pre></div><h3 id="sizeof"><a href="#sizeof" aria-hidden="true" class="header-anchor">#</a> sizeOf</h3> <div class="language-solidity extra-class"><pre class="language-text"><code>/**
+ * @dev Returns the number of elements in the list
+ * @param self stored linked list from contract
+ * @return uint256
+ */
+function sizeOf(List storage self) internal view returns (uint256);
+</code></pre></div><h3 id="getnode"><a href="#getnode" aria-hidden="true" class="header-anchor">#</a> getNode</h3> <div class="language-solidity extra-class"><pre class="language-text"><code>/**
+ * @dev Returns the links of a node as a tuple
+ * @param self stored linked list from contract
+ * @param _node id of the node to get
+ * @return bool, uint256, uint256 true if node exists or false otherwise, previous node, next node
+ */
+function getNode(List storage self, uint256 _node) internal view returns (bool, uint256, uint256);
+</code></pre></div><h3 id="getadjacent"><a href="#getadjacent" aria-hidden="true" class="header-anchor">#</a> getAdjacent</h3> <div class="language-solidity extra-class"><pre class="language-text"><code>/**
+ * @dev Returns the link of a node `_node` in direction `_direction`.
+ * @param self stored linked list from contract
+ * @param _node id of the node to step from
+ * @param _direction direction to step in
+ * @return bool, uint256 true if node exists or false otherwise, node in _direction
+ */
+function getAdjacent(List storage self, uint256 _node, bool _direction) internal view returns (bool, uint256);
+</code></pre></div><h3 id="getnextnode"><a href="#getnextnode" aria-hidden="true" class="header-anchor">#</a> getNextNode</h3> <div class="language-solidity extra-class"><pre class="language-text"><code>/**
+ * @dev Returns the link of a node `_node` in direction `NEXT`.
+ * @param self stored linked list from contract
+ * @param _node id of the node to step from
+ * @return bool, uint256 true if node exists or false otherwise, next node
+ */
+function getNextNode(List storage self, uint256 _node) internal view returns (bool, uint256);
+</code></pre></div><h3 id="getpreviousnode"><a href="#getpreviousnode" aria-hidden="true" class="header-anchor">#</a> getPreviousNode</h3> <div class="language-solidity extra-class"><pre class="language-text"><code>/**
+ * @dev Returns the link of a node `_node` in direction `PREV`.
+ * @param self stored linked list from contract
+ * @param _node id of the node to step from
+ * @return bool, uint256 true if node exists or false otherwise, previous node
+ */
+function getPreviousNode(List storage self, uint256 _node) internal view returns (bool, uint256);
+</code></pre></div><h3 id="getsortedspot"><a href="#getsortedspot" aria-hidden="true" class="header-anchor">#</a> getSortedSpot</h3> <div class="language-solidity extra-class"><pre class="language-text"><code>/**
+ * @dev Can be used before `insert` to build an ordered list. 
+ * @dev Get the node and then `insertBefore` or `insertAfter` basing on your list order.
+ * @dev If you want to order basing on other than `structure.getValue()` override this function
+ * @param self stored linked list from contract
+ * @param _structure the structure instance
+ * @param _value value to seek
+ * @return uint256 next node with a value less than _value
+ */
+function getSortedSpot(List storage self, address _structure, uint256 _value) internal view returns (uint256);
+</code></pre></div><h3 id="createlink"><a href="#createlink" aria-hidden="true" class="header-anchor">#</a> createLink</h3> <div class="language-solidity extra-class"><pre class="language-text"><code>/**
+ * @dev Creates a bidirectional link between two nodes on direction `_direction`
+ * @param self stored linked list from contract
+ * @param _node first node for linking
+ * @param _link  node to link to in the _direction
+ */
+function createLink(List storage self, uint256 _node, uint256 _link, bool _direction) internal;
+</code></pre></div><h3 id="insert"><a href="#insert" aria-hidden="true" class="header-anchor">#</a> insert</h3> <div class="language-solidity extra-class"><pre class="language-text"><code>/**
+ * @dev Insert node `_new` beside existing node `_node` in direction `_direction`.
+ * @param self stored linked list from contract
+ * @param _node existing node
+ * @param _new  new node to insert
+ * @param _direction direction to insert node in
+ * @return bool true if success, false otherwise
+ */
+function insert(List storage self, uint256 _node, uint256 _new, bool _direction) internal returns (bool);
+</code></pre></div><h3 id="insertafter"><a href="#insertafter" aria-hidden="true" class="header-anchor">#</a> insertAfter</h3> <div class="language-solidity extra-class"><pre class="language-text"><code>/**
+ * @dev Insert node `_new` beside existing node `_node` in direction `NEXT`.
+ * @param self stored linked list from contract
+ * @param _node existing node
+ * @param _new  new node to insert
+ * @return bool true if success, false otherwise
+ */
+function insertAfter(List storage self, uint256 _node, uint256 _new) internal returns (bool);
+</code></pre></div><h3 id="insertbefore"><a href="#insertbefore" aria-hidden="true" class="header-anchor">#</a> insertBefore</h3> <div class="language-solidity extra-class"><pre class="language-text"><code>/**
+ * @dev Insert node `_new` beside existing node `_node` in direction `PREV`.
+ * @param self stored linked list from contract
+ * @param _node existing node
+ * @param _new  new node to insert
+ * @return bool true if success, false otherwise
+ */
+function insertBefore(List storage self, uint256 _node, uint256 _new) internal returns (bool);
+</code></pre></div><h3 id="remove"><a href="#remove" aria-hidden="true" class="header-anchor">#</a> remove</h3> <div class="language-solidity extra-class"><pre class="language-text"><code>/**
+ * @dev Removes an entry from the linked list
+ * @param self stored linked list from contract
+ * @param _node node to remove from the list
+ * @return uint256 the removed node
+ */
+function remove(List storage self, uint256 _node) internal returns (uint256);
+</code></pre></div><h3 id="push"><a href="#push" aria-hidden="true" class="header-anchor">#</a> push</h3> <div class="language-solidity extra-class"><pre class="language-text"><code>/**
+ * @dev Pushes an entry to the head of the linked list
+ * @param self stored linked list from contract
+ * @param _node new entry to push to the head
+ * @param _direction push to the head (NEXT) or tail (PREV)
+ * @return bool true if success, false otherwise
+ */
+function push(List storage self, uint256 _node, bool _direction) internal returns (bool);
+</code></pre></div><h3 id="pop"><a href="#pop" aria-hidden="true" class="header-anchor">#</a> pop</h3> <div class="language-solidity extra-class"><pre class="language-text"><code>/**
+ * @dev Pops the first entry from the linked list
+ * @param self stored linked list from contract
+ * @param _direction pop from the head (NEXT) or the tail (PREV)
+ * @return uint256 the removed node
+ */
+function pop(List storage self, bool _direction) internal returns (uint256);
+</code></pre></div><h2 id="development"><a href="#development" aria-hidden="true" class="header-anchor">#</a> Development</h2> <p>Install Truffle</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> <span class="token function">install</span> -g truffle      // Version 4.1.14+ required.
+</code></pre></div><h3 id="install-dependencies"><a href="#install-dependencies" aria-hidden="true" class="header-anchor">#</a> Install dependencies</h3> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> <span class="token function">install</span>
+</code></pre></div><h3 id="linter"><a href="#linter" aria-hidden="true" class="header-anchor">#</a> Linter</h3> <p>Use Solium</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> run lint:sol
+</code></pre></div><p>Use ESLint</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> run lint:js
+</code></pre></div><p>Use both and fix</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> run lint:fix
+</code></pre></div><h3 id="compile-and-test-the-contracts"><a href="#compile-and-test-the-contracts" aria-hidden="true" class="header-anchor">#</a> Compile and test the contracts</h3> <p>Open the Truffle console</p> <div class="language-bash extra-class"><pre class="language-bash"><code>truffle develop
+</code></pre></div><p>Compile</p> <div class="language-bash extra-class"><pre class="language-bash"><code>compile 
+</code></pre></div><p>Test</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">test</span>
+</code></pre></div><h2 id="license"><a href="#license" aria-hidden="true" class="header-anchor">#</a> License</h2> <p>Code released under the <a href="https://github.com/vittominacori/solidity-linked-list/blob/master/LICENSE" target="_blank" rel="noopener noreferrer">MIT License<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>.</p></div> <div class="page-edit"><!----> <!----></div> <!----> </div> <!----></div></div>
+    <script src="/solidity-linked-list/assets/js/3.251e1c64.js" defer></script><script src="/solidity-linked-list/assets/js/app.5ef0ccf5.js" defer></script>
+  </body>
+</html>
