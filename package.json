@@ -1,0 +1,58 @@
+{
+  "name": "solidity-linked-list",
+  "version": "1.0.0",
+  "description": "An utility library for using sorted linked list data structures in your Solidity project",
+  "files": [
+    "contracts",
+    "test"
+  ],
+  "scripts": {
+    "test": "scripts/test.sh",
+    "lint:js": "eslint .",
+    "lint:js:fix": "eslint . --fix",
+    "lint:sol": "solium -d .",
+    "lint:sol:fix": "solium -d . --fix",
+    "lint": "npm run lint:js && npm run lint:sol",
+    "lint:fix": "npm run lint:js:fix && npm run lint:sol:fix",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "docs:deploy": "vuepress build docs && sh docs/deploy/deploy.sh",
+    "console": "truffle console",
+    "coverage": "scripts/coverage.sh",
+    "version": "scripts/version.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vittominacori/solidity-linked-list.git"
+  },
+  "keywords": [
+    "solidity",
+    "ethereum",
+    "smart",
+    "contracts",
+    "token"
+  ],
+  "author": "Vittorio Minacori (https://github.com/vittominacori)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vittominacori/solidity-linked-list/issues"
+  },
+  "homepage": "https://github.com/vittominacori/solidity-linked-list",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-bignumber": "^2.0.2",
+    "coveralls": "^3.0.2",
+    "dotenv": "^6.1.0",
+    "eslint": "^5.7.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "ganache-cli": "6.1.8",
+    "solidity-coverage": "^0.5.11",
+    "solium": "^1.1.8",
+    "truffle": "^4.1.14",
+    "vuepress": "^0.14.4"
+  }
+}
