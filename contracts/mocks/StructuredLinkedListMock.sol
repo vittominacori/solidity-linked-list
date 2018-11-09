@@ -2,7 +2,6 @@ pragma solidity ^0.4.24;
 
 import "../StructuredLinkedList.sol";
 
-
 contract StructuredLinkedListMock {
   using StructuredLinkedList for StructuredLinkedList.List;
 
