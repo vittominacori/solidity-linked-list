@@ -1,6 +1,6 @@
 {
   "name": "solidity-linked-list",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An utility library for using sorted linked list data structures in your Solidity project",
   "files": [
     "contracts",
@@ -40,19 +40,19 @@
   "homepage": "https://github.com/vittominacori/solidity-linked-list",
   "devDependencies": {
     "chai": "^4.2.0",
-    "chai-bignumber": "^2.0.2",
+    "chai-bignumber": "^3.0.0",
     "coveralls": "^3.0.2",
-    "dotenv": "^6.1.0",
-    "eslint": "^5.8.0",
+    "dotenv": "^6.2.0",
+    "eslint": "^5.12.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
-    "ganache-cli": "6.1.8",
+    "ethlint": "^1.2.2",
+    "ganache-cli": "^6.2.5",
     "solidity-coverage": "^0.5.11",
-    "solium": "^1.1.8",
-    "truffle": "^4.1.14",
-    "vuepress": "^0.14.4"
+    "truffle": "^4.1.15",
+    "vuepress": "^0.14.8"
   }
 }

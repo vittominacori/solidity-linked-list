@@ -15,10 +15,9 @@ npm install solidity-linked-list
 ## Usage
 
 ```solidity
-pragma solidity ^0.4.24;
+pragma solidity ^0.4.25;
 
 import "solidity-linked-list/contracts/StructuredLinkedList.sol";
-
 
 contract MyContract {
   using StructuredLinkedList for StructuredLinkedList.List;
@@ -228,7 +227,7 @@ function pop(List storage self, bool _direction) internal returns (uint256);
 Install Truffle
 
 ```bash
-npm install -g truffle      // Version 4.1.14+ required.
+npm install -g truffle      // Version 4.1.15+ required
 ```
 
 ### Install dependencies
@@ -239,7 +238,7 @@ npm install
 
 ### Linter
 
-Use Solium
+Use Ethlint
 
 ```bash
 npm run lint:sol

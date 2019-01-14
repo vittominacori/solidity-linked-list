@@ -1,4 +1,4 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.4.25;
 
 contract StructureInterface {
   function getValue (uint256 _id) public view returns (uint256);
@@ -8,7 +8,7 @@ contract StructureInterface {
  * @title StructuredLinkedList
  * @author Vittorio Minacori (https://github.com/vittominacori)
  * @dev This utility library is inspired by https://github.com/Modular-Network/ethereum-libraries/tree/master/LinkedListLib
- *  It has been updated to add additional functionality and be compatible with solidity 0.4.24 coding patterns.
+ *  It has been updated to add additional functionality and be compatible with solidity 0.4.25 coding patterns.
  */
 library StructuredLinkedList {
 
