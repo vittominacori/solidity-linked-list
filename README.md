@@ -2,7 +2,8 @@
 
 [![NPM Package](https://img.shields.io/npm/v/solidity-linked-list.svg?style=flat-square)](https://www.npmjs.org/package/solidity-linked-list)
 [![Build Status](https://travis-ci.org/vittominacori/solidity-linked-list.svg?branch=master)](https://travis-ci.org/vittominacori/solidity-linked-list)
-[![Coverage Status](https://coveralls.io/repos/github/vittominacori/solidity-linked-list/badge.svg?branch=master)](https://coveralls.io/github/vittominacori/solidity-linked-list?branch=master) 
+[![Coverage Status](https://coveralls.io/repos/github/vittominacori/solidity-linked-list/badge.svg?branch=master)](https://coveralls.io/github/vittominacori/solidity-linked-list?branch=master)
+[![MIT licensed](https://img.shields.io/github/license/vittominacori/solidity-linked-list.svg)](https://github.com/vittominacori/solidity-linked-list/blob/master/LICENSE) 
 
 An utility library for using sorted linked list data structures in your Solidity project.
 
@@ -15,17 +16,16 @@ npm install solidity-linked-list
 ## Usage
 
 ```solidity
-pragma solidity ^0.4.25;
+pragma solidity ^0.5.5;
 
 import "solidity-linked-list/contracts/StructuredLinkedList.sol";
 
 contract MyContract {
-  using StructuredLinkedList for StructuredLinkedList.List;
-  
-  StructuredLinkedList.List list;
-  
-  // your stuff
-  // check contracts/mocks/ for samples
+    using StructuredLinkedList for StructuredLinkedList.List;
+    
+    StructuredLinkedList.List list;
+    
+    // your stuff
 }
 ```
 
@@ -224,21 +224,41 @@ function pop(List storage self, bool _direction) internal returns (uint256);
 
 ## Development
 
-Install Truffle
-
-```bash
-npm install -g truffle      // Version 4.1.15+ required
-```
-
 ### Install dependencies
 
 ```bash
 npm install
 ```
 
-### Linter
+## Usage
 
-Use Ethlint
+Open the Truffle console
+
+```bash
+npm run console
+```
+
+### Compile
+
+```bash
+npm run compile
+```
+
+### Test 
+
+```bash
+npm run test 
+```
+
+### Code Coverage
+
+```bash
+npm run coverage
+```
+
+## Linter
+
+Use Solhint
 
 ```bash
 npm run lint:sol
@@ -250,30 +270,10 @@ Use ESLint
 npm run lint:js
 ```
 
-Use both and fix
+Use ESLint and fix
 
 ```bash
 npm run lint:fix
-```
-
-### Compile and test the contracts
- 
-Open the Truffle console
-
-```bash
-truffle develop
-```
-
-Compile 
-
-```bash
-compile 
-```
-
-Test
-
-```bash
-test
 ```
 
 ## License

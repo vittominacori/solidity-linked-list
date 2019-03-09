@@ -1,11 +1,7 @@
-const BigNumber = web3.BigNumber;
+const { BN, expectEvent } = require('openzeppelin-test-helpers');
 
-const should = require('chai')
-  .use(require('chai-bignumber')(BigNumber))
-  .should();
-
-const HEAD = 0;
-const INVALID_TOKEN_ID = 111;
+const HEAD = new BN(0);
+const INVALID_TOKEN_ID = new BN(111);
 
 const PREV = false;
 const NEXT = true;
@@ -13,7 +9,7 @@ const NEXT = true;
 const StructuredLinkedList = artifacts.require('StructuredLinkedListMock.sol');
 
 contract('StructuredLinkedList', function ([owner]) {
-  const value = new BigNumber(1);
+  const value = new BN(1);
 
   beforeEach(async function () {
     this.list = await StructuredLinkedList.new({ from: owner });
@@ -30,7 +26,7 @@ contract('StructuredLinkedList', function ([owner]) {
     describe('sizeOf', function () {
       it('should be zero', async function () {
         const sizeOf = await this.list.sizeOf();
-        sizeOf.should.be.bignumber.equal(0);
+        sizeOf.should.be.bignumber.equal(new BN(0));
       });
     });
 
@@ -64,7 +60,7 @@ contract('StructuredLinkedList', function ([owner]) {
       describe('sizeOf', function () {
         it('should be greater than zero', async function () {
           const sizeOf = await this.list.sizeOf();
-          sizeOf.should.be.bignumber.gt(0);
+          sizeOf.should.be.bignumber.gt(new BN(0));
         });
       });
 
@@ -106,9 +102,10 @@ contract('StructuredLinkedList', function ([owner]) {
 
           const newTokenId = await this.list.progressiveId();
           const { logs } = await this.list.insertAfter(INVALID_TOKEN_ID, newTokenId);
-          const event = logs.find(e => e.event === 'LogNotice');
-          should.exist(event);
-          event.args.booleanValue.should.equal(false);
+
+          expectEvent.inLogs(logs, 'LogNotice', {
+            booleanValue: false,
+          });
 
           const node = await this.list.getNode(newTokenId);
           node[0].should.be.equal(false);
@@ -123,9 +120,10 @@ contract('StructuredLinkedList', function ([owner]) {
 
           const newTokenId = await this.list.progressiveId();
           const { logs } = await this.list.insertBefore(INVALID_TOKEN_ID, newTokenId);
-          const event = logs.find(e => e.event === 'LogNotice');
-          should.exist(event);
-          event.args.booleanValue.should.equal(false);
+
+          expectEvent.inLogs(logs, 'LogNotice', {
+            booleanValue: false,
+          });
 
           const node = await this.list.getNode(newTokenId);
           node[0].should.be.equal(false);
@@ -137,18 +135,20 @@ contract('StructuredLinkedList', function ([owner]) {
       describe('remove not existent node', function () {
         it('should fail', async function () {
           const { logs } = await this.list.remove(INVALID_TOKEN_ID);
-          const event = logs.find(e => e.event === 'LogNotice');
-          should.exist(event);
-          event.args.booleanValue.should.equal(false);
+
+          expectEvent.inLogs(logs, 'LogNotice', {
+            booleanValue: false,
+          });
         });
       });
 
       describe('remove the HEAD node', function () {
         it('should fail', async function () {
           const { logs } = await this.list.remove(HEAD);
-          const event = logs.find(e => e.event === 'LogNotice');
-          should.exist(event);
-          event.args.booleanValue.should.equal(false);
+
+          expectEvent.inLogs(logs, 'LogNotice', {
+            booleanValue: false,
+          });
         });
       });
     });
@@ -270,9 +270,11 @@ contract('StructuredLinkedList', function ([owner]) {
           describe('remove node', function () {
             beforeEach(async function () {
               const { logs } = await this.list.remove(tokenId);
-              const event = logs.find(e => e.event === 'LogNotice');
-              should.exist(event);
-              event.args.booleanValue.should.equal(true);
+
+              expectEvent.inLogs(logs, 'LogNotice', {
+                booleanValue: true,
+              });
+
               firstNode = await this.list.getNode(firstTokenId);
               secondNode = await this.list.getNode(secondTokenId);
             });
@@ -304,9 +306,11 @@ contract('StructuredLinkedList', function ([owner]) {
           describe('remove firstNode', function () {
             beforeEach(async function () {
               const { logs } = await this.list.remove(firstTokenId);
-              const event = logs.find(e => e.event === 'LogNotice');
-              should.exist(event);
-              event.args.booleanValue.should.equal(true);
+
+              expectEvent.inLogs(logs, 'LogNotice', {
+                booleanValue: true,
+              });
+
               node = await this.list.getNode(tokenId);
               secondNode = await this.list.getNode(secondTokenId);
             });
@@ -338,9 +342,11 @@ contract('StructuredLinkedList', function ([owner]) {
           describe('remove secondNode', function () {
             beforeEach(async function () {
               const { logs } = await this.list.remove(secondTokenId);
-              const event = logs.find(e => e.event === 'LogNotice');
-              should.exist(event);
-              event.args.booleanValue.should.equal(true);
+
+              expectEvent.inLogs(logs, 'LogNotice', {
+                booleanValue: true,
+              });
+
               node = await this.list.getNode(tokenId);
               firstNode = await this.list.getNode(firstTokenId);
             });
@@ -374,9 +380,11 @@ contract('StructuredLinkedList', function ([owner]) {
           describe('pop from HEAD', function () {
             beforeEach(async function () {
               const { logs } = await this.list.pop(NEXT);
-              const event = logs.find(e => e.event === 'LogNotice');
-              should.exist(event);
-              event.args.booleanValue.should.equal(true);
+
+              expectEvent.inLogs(logs, 'LogNotice', {
+                booleanValue: true,
+              });
+
               firstNode = await this.list.getNode(firstTokenId);
               secondNode = await this.list.getNode(secondTokenId);
             });
@@ -408,9 +416,11 @@ contract('StructuredLinkedList', function ([owner]) {
           describe('pop from TAIL', function () {
             beforeEach(async function () {
               const { logs } = await this.list.pop(PREV);
-              const event = logs.find(e => e.event === 'LogNotice');
-              should.exist(event);
-              event.args.booleanValue.should.equal(true);
+
+              expectEvent.inLogs(logs, 'LogNotice', {
+                booleanValue: true,
+              });
+
               node = await this.list.getNode(tokenId);
               firstNode = await this.list.getNode(firstTokenId);
             });
@@ -452,9 +462,11 @@ contract('StructuredLinkedList', function ([owner]) {
           describe('push to HEAD', function () {
             beforeEach(async function () {
               const { logs } = await this.list.push(thirdTokenId, NEXT);
-              const event = logs.find(e => e.event === 'LogNotice');
-              should.exist(event);
-              event.args.booleanValue.should.equal(true);
+
+              expectEvent.inLogs(logs, 'LogNotice', {
+                booleanValue: true,
+              });
+
               node = await this.list.getNode(tokenId);
               thirdNode = await this.list.getNode(thirdTokenId);
             });
@@ -475,9 +487,11 @@ contract('StructuredLinkedList', function ([owner]) {
           describe('push to TAIL', function () {
             beforeEach(async function () {
               const { logs } = await this.list.push(thirdTokenId, PREV);
-              const event = logs.find(e => e.event === 'LogNotice');
-              should.exist(event);
-              event.args.booleanValue.should.equal(true);
+
+              expectEvent.inLogs(logs, 'LogNotice', {
+                booleanValue: true,
+              });
+
               secondNode = await this.list.getNode(secondTokenId);
               thirdNode = await this.list.getNode(thirdTokenId);
             });
@@ -612,8 +626,8 @@ contract('StructuredLinkedList', function ([owner]) {
       let firstTokenId;
       let secondTokenId;
 
-      const firstTokenValue = value.sub(1);
-      const secondTokenValue = value.add(1);
+      const firstTokenValue = value.subn(1);
+      const secondTokenValue = value.addn(1);
 
       beforeEach(async function () {
         await this.list.createStructure(value);
@@ -673,9 +687,11 @@ contract('StructuredLinkedList', function ([owner]) {
           describe('remove node', function () {
             beforeEach(async function () {
               const { logs } = await this.list.remove(tokenId);
-              const event = logs.find(e => e.event === 'LogNotice');
-              should.exist(event);
-              event.args.booleanValue.should.equal(true);
+
+              expectEvent.inLogs(logs, 'LogNotice', {
+                booleanValue: true,
+              });
+
               firstNode = await this.list.getNode(firstTokenId);
               secondNode = await this.list.getNode(secondTokenId);
             });
@@ -707,9 +723,11 @@ contract('StructuredLinkedList', function ([owner]) {
           describe('remove firstNode', function () {
             beforeEach(async function () {
               const { logs } = await this.list.remove(firstTokenId);
-              const event = logs.find(e => e.event === 'LogNotice');
-              should.exist(event);
-              event.args.booleanValue.should.equal(true);
+
+              expectEvent.inLogs(logs, 'LogNotice', {
+                booleanValue: true,
+              });
+
               node = await this.list.getNode(tokenId);
               secondNode = await this.list.getNode(secondTokenId);
             });
@@ -741,9 +759,11 @@ contract('StructuredLinkedList', function ([owner]) {
           describe('remove secondNode', function () {
             beforeEach(async function () {
               const { logs } = await this.list.remove(secondTokenId);
-              const event = logs.find(e => e.event === 'LogNotice');
-              should.exist(event);
-              event.args.booleanValue.should.equal(true);
+
+              expectEvent.inLogs(logs, 'LogNotice', {
+                booleanValue: true,
+              });
+
               node = await this.list.getNode(tokenId);
               firstNode = await this.list.getNode(firstTokenId);
             });
