@@ -16,7 +16,7 @@ npm install solidity-linked-list
 ## Usage
 
 ```solidity
-pragma solidity ^0.5.5;
+pragma solidity ^0.5.6;
 
 import "solidity-linked-list/contracts/StructuredLinkedList.sol";
 

@@ -1,4 +1,4 @@
-pragma solidity ^0.5.5;
+pragma solidity ^0.5.6;
 
 contract StructureInterface {
     function getValue(uint256 _id) public view returns (uint256);

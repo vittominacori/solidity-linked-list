@@ -1,13 +1,13 @@
 {
   "name": "solidity-linked-list",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "An utility library for using sorted linked list data structures in your Solidity project",
   "files": [
     "contracts",
     "test"
   ],
   "scripts": {
-    "compile": "truffle compile",
+    "compile": "truffle compile --all",
     "console": "truffle develop",
     "coverage": "scripts/coverage.sh",
     "test": "npm run compile && scripts/test.sh",
