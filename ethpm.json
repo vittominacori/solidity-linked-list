@@ -1,6 +1,6 @@
 {
   "package_name": "solidity-linked-list",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "An utility library for using sorted linked list data structures in your Solidity project",
   "authors": [
     "Vittorio Minacori (https://github.com/vittominacori)"
