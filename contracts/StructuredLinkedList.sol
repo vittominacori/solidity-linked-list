@@ -1,7 +1,7 @@
-pragma solidity ^0.5.9;
+pragma solidity ^0.6.0;
 
-contract StructureInterface {
-    function getValue(uint256 _id) public view returns (uint256);
+abstract contract  StructureInterface {
+    function getValue(uint256 _id) public virtual view returns (uint256);
 }
 
 /**
@@ -11,11 +11,11 @@ contract StructureInterface {
  */
 library StructuredLinkedList {
 
-    uint256 private constant NULL = 0;
-    uint256 private constant HEAD = 0;
+    uint256 private constant _NULL = 0;
+    uint256 private constant _HEAD = 0;
 
-    bool private constant PREV = false;
-    bool private constant NEXT = true;
+    bool private constant _PREV = false;
+    bool private constant _NEXT = true;
 
     struct List {
         mapping(uint256 => mapping(bool => uint256)) list;
@@ -28,7 +28,7 @@ library StructuredLinkedList {
      */
     function listExists(List storage self) internal view returns (bool) {
         // if the head nodes previous or next pointers both point to itself, then there are no items in the list
-        if (self.list[HEAD][PREV] != HEAD || self.list[HEAD][NEXT] != HEAD) {
+        if (self.list[_HEAD][_PREV] != _HEAD || self.list[_HEAD][_NEXT] != _HEAD) {
             return true;
         } else {
             return false;
@@ -42,8 +42,8 @@ library StructuredLinkedList {
      * @return bool true if node exists, false otherwise
      */
     function nodeExists(List storage self, uint256 _node) internal view returns (bool) {
-        if (self.list[_node][PREV] == HEAD && self.list[_node][NEXT] == HEAD) {
-            if (self.list[HEAD][NEXT] == _node) {
+        if (self.list[_node][_PREV] == _HEAD && self.list[_node][_NEXT] == _HEAD) {
+            if (self.list[_HEAD][_NEXT] == _node) {
                 return true;
             } else {
                 return false;
@@ -62,9 +62,9 @@ library StructuredLinkedList {
         bool exists;
         uint256 i;
         uint256 numElements;
-        (exists, i) = getAdjacent(self, HEAD, NEXT);
-        while (i != HEAD) {
-            (exists, i) = getAdjacent(self, i, NEXT);
+        (exists, i) = getAdjacent(self, _HEAD, _NEXT);
+        while (i != _HEAD) {
+            (exists, i) = getAdjacent(self, i, _NEXT);
             numElements++;
         }
         return numElements;
@@ -80,7 +80,7 @@ library StructuredLinkedList {
         if (!nodeExists(self, _node)) {
             return (false, 0, 0);
         } else {
-            return (true, self.list[_node][PREV], self.list[_node][NEXT]);
+            return (true, self.list[_node][_PREV], self.list[_node][_NEXT]);
         }
     }
 
@@ -100,23 +100,23 @@ library StructuredLinkedList {
     }
 
     /**
-     * @dev Returns the link of a node `_node` in direction `NEXT`.
+     * @dev Returns the link of a node `_node` in direction `_NEXT`.
      * @param self stored linked list from contract
      * @param _node id of the node to step from
      * @return bool, uint256 true if node exists or false otherwise, next node
      */
     function getNextNode(List storage self, uint256 _node) internal view returns (bool, uint256) {
-        return getAdjacent(self, _node, NEXT);
+        return getAdjacent(self, _node, _NEXT);
     }
 
     /**
-     * @dev Returns the link of a node `_node` in direction `PREV`.
+     * @dev Returns the link of a node `_node` in direction `_PREV`.
      * @param self stored linked list from contract
      * @param _node id of the node to step from
      * @return bool, uint256 true if node exists or false otherwise, previous node
      */
     function getPreviousNode(List storage self, uint256 _node) internal view returns (bool, uint256) {
-        return getAdjacent(self, _node, PREV);
+        return getAdjacent(self, _node, _PREV);
     }
 
     /**
@@ -134,9 +134,9 @@ library StructuredLinkedList {
         }
         bool exists;
         uint256 next;
-        (exists, next) = getAdjacent(self, HEAD, NEXT);
-        while ((next != 0) && ((_value < StructureInterface(_structure).getValue(next)) != NEXT)) {
-            next = self.list[next][NEXT];
+        (exists, next) = getAdjacent(self, _HEAD, _NEXT);
+        while ((next != 0) && ((_value < StructureInterface(_structure).getValue(next)) != _NEXT)) {
+            next = self.list[next][_NEXT];
         }
         return next;
     }
@@ -172,25 +172,25 @@ library StructuredLinkedList {
     }
 
     /**
-     * @dev Insert node `_new` beside existing node `_node` in direction `NEXT`.
+     * @dev Insert node `_new` beside existing node `_node` in direction `_NEXT`.
      * @param self stored linked list from contract
      * @param _node existing node
      * @param _new  new node to insert
      * @return bool true if success, false otherwise
      */
     function insertAfter(List storage self, uint256 _node, uint256 _new) internal returns (bool) {
-        return insert(self, _node, _new, NEXT);
+        return insert(self, _node, _new, _NEXT);
     }
 
     /**
-     * @dev Insert node `_new` beside existing node `_node` in direction `PREV`.
+     * @dev Insert node `_new` beside existing node `_node` in direction `_PREV`.
      * @param self stored linked list from contract
      * @param _node existing node
      * @param _new  new node to insert
      * @return bool true if success, false otherwise
      */
     function insertBefore(List storage self, uint256 _node, uint256 _new) internal returns (bool) {
-        return insert(self, _node, _new, PREV);
+        return insert(self, _node, _new, _PREV);
     }
 
     /**
@@ -200,12 +200,12 @@ library StructuredLinkedList {
      * @return uint256 the removed node
      */
     function remove(List storage self, uint256 _node) internal returns (uint256) {
-        if ((_node == NULL) || (!nodeExists(self, _node))) {
+        if ((_node == _NULL) || (!nodeExists(self, _node))) {
             return 0;
         }
-        createLink(self, self.list[_node][PREV], self.list[_node][NEXT], NEXT);
-        delete self.list[_node][PREV];
-        delete self.list[_node][NEXT];
+        createLink(self, self.list[_node][_PREV], self.list[_node][_NEXT], _NEXT);
+        delete self.list[_node][_PREV];
+        delete self.list[_node][_NEXT];
         return _node;
     }
 
@@ -213,23 +213,23 @@ library StructuredLinkedList {
      * @dev Pushes an entry to the head of the linked list
      * @param self stored linked list from contract
      * @param _node new entry to push to the head
-     * @param _direction push to the head (NEXT) or tail (PREV)
+     * @param _direction push to the head (_NEXT) or tail (_PREV)
      * @return bool true if success, false otherwise
      */
     function push(List storage self, uint256 _node, bool _direction) internal returns (bool) {
-        return insert(self, HEAD, _node, _direction);
+        return insert(self, _HEAD, _node, _direction);
     }
 
     /**
      * @dev Pops the first entry from the linked list
      * @param self stored linked list from contract
-     * @param _direction pop from the head (NEXT) or the tail (PREV)
+     * @param _direction pop from the head (_NEXT) or the tail (_PREV)
      * @return uint256 the removed node
      */
     function pop(List storage self, bool _direction) internal returns (uint256) {
         bool exists;
         uint256 adj;
-        (exists, adj) = getAdjacent(self, HEAD, _direction);
+        (exists, adj) = getAdjacent(self, _HEAD, _direction);
         return remove(self, adj);
     }
 }

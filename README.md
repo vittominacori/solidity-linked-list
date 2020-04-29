@@ -3,7 +3,7 @@
 [![NPM Package](https://img.shields.io/npm/v/solidity-linked-list.svg?style=flat-square)](https://www.npmjs.org/package/solidity-linked-list)
 [![Build Status](https://travis-ci.org/vittominacori/solidity-linked-list.svg?branch=master)](https://travis-ci.org/vittominacori/solidity-linked-list)
 [![Coverage Status](https://coveralls.io/repos/github/vittominacori/solidity-linked-list/badge.svg?branch=master)](https://coveralls.io/github/vittominacori/solidity-linked-list?branch=master)
-[![MIT licensed](https://img.shields.io/github/license/vittominacori/solidity-linked-list.svg)](https://github.com/vittominacori/solidity-linked-list/blob/master/LICENSE) 
+[![MIT licensed](https://img.shields.io/github/license/vittominacori/solidity-linked-list.svg)](https://github.com/vittominacori/solidity-linked-list/blob/master/LICENSE)
 
 An utility library for using sorted linked list data structures in your Solidity project.
 
@@ -16,15 +16,15 @@ npm install solidity-linked-list
 ## Usage
 
 ```solidity
-pragma solidity ^0.5.9;
+pragma solidity ^0.6.0;
 
 import "solidity-linked-list/contracts/StructuredLinkedList.sol";
 
 contract MyContract {
     using StructuredLinkedList for StructuredLinkedList.List;
-    
+
     StructuredLinkedList.List list;
-    
+
     // your stuff
 }
 ```
@@ -122,7 +122,7 @@ function getPreviousNode(List storage self, uint256 _node) internal view returns
 
 ```solidity
 /**
- * @dev Can be used before `insert` to build an ordered list. 
+ * @dev Can be used before `insert` to build an ordered list.
  * @dev Get the node and then `insertBefore` or `insertAfter` basing on your list order.
  * @dev If you want to order basing on other than `structure.getValue()` override this function
  * @param self stored linked list from contract
@@ -230,7 +230,7 @@ function pop(List storage self, bool _direction) internal returns (uint256);
 npm install
 ```
 
-## Usage
+## Usage (using Truffle)
 
 Open the Truffle console
 
@@ -244,10 +244,30 @@ npm run console
 npm run compile
 ```
 
-### Test 
+### Test
 
 ```bash
-npm run test 
+npm run test
+```
+
+## Usage (using Buidler)
+
+Open the Buidler console
+
+```bash
+npm run buidler:console
+```
+
+### Compile
+
+```bash
+npm run buidler:compile
+```
+
+### Test
+
+```bash
+npm run buidler:test
 ```
 
 ### Code Coverage

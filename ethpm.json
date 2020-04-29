@@ -1,6 +1,6 @@
 {
   "package_name": "solidity-linked-list",
-  "version": "2.1.2",
+  "version": "3.0.0",
   "description": "An utility library for using sorted linked list data structures in your Solidity project",
   "authors": [
     "Vittorio Minacori (https://github.com/vittominacori)"
@@ -10,7 +10,8 @@
     "ethereum",
     "smart",
     "contracts",
-    "token"
+    "linked",
+    "list"
   ],
   "license": "MIT"
 }

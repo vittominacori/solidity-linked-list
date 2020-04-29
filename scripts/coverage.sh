@@ -1,3 +1,9 @@
 #!/usr/bin/env bash
 
-SOLIDITY_COVERAGE=true scripts/test.sh
+if [ "$USE_BUIDLER" = true ]; then
+  npx buidler coverage --network coverage
+else
+  npx truffle run coverage --network coverage
+fi
+
+cat coverage/lcov.info | coveralls

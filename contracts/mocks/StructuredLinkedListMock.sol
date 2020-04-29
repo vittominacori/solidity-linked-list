@@ -1,4 +1,4 @@
-pragma solidity ^0.5.9;
+pragma solidity ^0.6.0;
 
 import "../StructuredLinkedList.sol";
 
@@ -10,10 +10,10 @@ contract StructuredLinkedListMock {
     }
 
     // Mapping from token ID to the structures
-    mapping(uint256 => BaseStructure) private structureMap;
+    mapping(uint256 => BaseStructure) private _structureMap;
     uint256 public progressiveId = 0;
 
-    StructuredLinkedList.List private list;
+    StructuredLinkedList.List private _list;
 
     event LogNotice(bool booleanValue);
 
@@ -22,61 +22,61 @@ contract StructuredLinkedListMock {
      */
     function createStructure(uint256 _value) public {
         progressiveId = progressiveId + 1;
-        structureMap[progressiveId] = BaseStructure(_value);
+        _structureMap[progressiveId] = BaseStructure(_value);
     }
 
     /*
      * @dev This function must return the value basing on we are sorted list
      */
     function getValue(uint256 _id) public view returns (uint256) {
-        return structureMap[_id].value;
+        return _structureMap[_id].value;
     }
 
     function listExists() public view returns (bool) {
-        return list.listExists();
+        return _list.listExists();
     }
 
     function nodeExists(uint256 _node) public view returns (bool) {
-        return list.nodeExists(_node);
+        return _list.nodeExists(_node);
     }
 
     function sizeOf() public view returns (uint256) {
-        return list.sizeOf();
+        return _list.sizeOf();
     }
 
     function getNode(uint256 _node) public view returns (bool, uint256, uint256) {
-        return list.getNode(_node);
+        return _list.getNode(_node);
     }
 
     function getNextNode(uint256 _node) public view returns (bool, uint256) {
-        return list.getNextNode(_node);
+        return _list.getNextNode(_node);
     }
 
     function getPreviousNode(uint256 _node) public view returns (bool, uint256) {
-        return list.getPreviousNode(_node);
+        return _list.getPreviousNode(_node);
     }
 
     function getSortedSpot(address _structure, uint256 _value) public view returns (uint256) {
-        return list.getSortedSpot(_structure, _value);
+        return _list.getSortedSpot(_structure, _value);
     }
 
     function insertAfter(uint256 _node, uint256 _new) public {
-        emit LogNotice(list.insertAfter(_node, _new));
+        emit LogNotice(_list.insertAfter(_node, _new));
     }
 
     function insertBefore(uint256 _node, uint256 _new) public {
-        emit LogNotice(list.insertBefore(_node, _new));
+        emit LogNotice(_list.insertBefore(_node, _new));
     }
 
     function remove(uint256 _node) public {
-        emit LogNotice(list.remove(_node) > 0 ? true : false);
+        emit LogNotice(_list.remove(_node) > 0 ? true : false);
     }
 
     function push(uint256 _node, bool _direction) public {
-        emit LogNotice(list.push(_node, _direction));
+        emit LogNotice(_list.push(_node, _direction));
     }
 
     function pop(bool _direction) public {
-        emit LogNotice(list.pop(_direction) > 0 ? true : false);
+        emit LogNotice(_list.pop(_direction) > 0 ? true : false);
     }
 }

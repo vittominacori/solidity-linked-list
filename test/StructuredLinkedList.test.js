@@ -1,4 +1,4 @@
-const { BN, expectEvent } = require('openzeppelin-test-helpers');
+const { BN, expectEvent } = require('@openzeppelin/test-helpers');
 
 const HEAD = new BN(0);
 const INVALID_TOKEN_ID = new BN(111);
