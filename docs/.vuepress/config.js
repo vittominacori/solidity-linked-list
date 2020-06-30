@@ -2,7 +2,11 @@ module.exports = {
   title: 'Use linked list data structures in Solidity',
   description: 'An utility library for using sorted linked list data structures in your Solidity project',
   base: '/solidity-linked-list/',
-  ga: 'UA-115756440-2',
+  plugins: [
+    ['@vuepress/google-analytics', {
+      ga: 'UA-115756440-2'
+    }]
+  ],
   themeConfig: {
     repo: 'vittominacori/solidity-linked-list',
     sidebar: 'auto',
