@@ -377,9 +377,9 @@ contract('StructuredLinkedList', function ([owner]) {
         });
 
         context('testing pop', function () {
-          describe('pop from HEAD', function () {
+          describe('popFront', function () {
             beforeEach(async function () {
-              const { logs } = await this.list.pop(NEXT);
+              const { logs } = await this.list.popFront();
 
               expectEvent.inLogs(logs, 'LogNotice', {
                 booleanValue: true,
@@ -413,9 +413,9 @@ contract('StructuredLinkedList', function ([owner]) {
             });
           });
 
-          describe('pop from TAIL', function () {
+          describe('popBack', function () {
             beforeEach(async function () {
-              const { logs } = await this.list.pop(PREV);
+              const { logs } = await this.list.popBack();
 
               expectEvent.inLogs(logs, 'LogNotice', {
                 booleanValue: true,
@@ -459,9 +459,9 @@ contract('StructuredLinkedList', function ([owner]) {
             thirdTokenId = await this.list.progressiveId();
           });
 
-          describe('push to HEAD', function () {
+          describe('pushFront', function () {
             beforeEach(async function () {
-              const { logs } = await this.list.push(thirdTokenId, NEXT);
+              const { logs } = await this.list.pushFront(thirdTokenId);
 
               expectEvent.inLogs(logs, 'LogNotice', {
                 booleanValue: true,
@@ -484,9 +484,9 @@ contract('StructuredLinkedList', function ([owner]) {
             });
           });
 
-          describe('push to TAIL', function () {
+          describe('pushBack', function () {
             beforeEach(async function () {
-              const { logs } = await this.list.push(thirdTokenId, PREV);
+              const { logs } = await this.list.pushBack(thirdTokenId);
 
               expectEvent.inLogs(logs, 'LogNotice', {
                 booleanValue: true,
