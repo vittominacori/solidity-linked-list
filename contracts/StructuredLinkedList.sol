@@ -130,7 +130,7 @@ library StructuredLinkedList {
     /**
      * @dev Creates a bidirectional link between two nodes on direction `_direction`
      *      NOTE(pb): This method shall *NOT* be used directly, since it allows to
-     *                create disjoint sub-list (= separated/disconnected from the rest of the list)
+     *                create disjoint sub-list (= separated/disconnected from the rest of the main list)
      * @param self stored linked list from contract
      * @param _node first node for linking
      * @param _link  node to link to in the _direction

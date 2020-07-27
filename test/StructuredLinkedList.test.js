@@ -3,9 +3,6 @@ const { BN, expectEvent } = require('@openzeppelin/test-helpers');
 const HEAD = new BN(0);
 const INVALID_TOKEN_ID = new BN(111);
 
-const PREV = false;
-const NEXT = true;
-
 const StructuredLinkedList = artifacts.require('StructuredLinkedListMock.sol');
 
 contract('StructuredLinkedList', function ([owner]) {
