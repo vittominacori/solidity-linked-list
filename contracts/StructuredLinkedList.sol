@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.6.0;
+pragma solidity ^0.7.0;
 
 abstract contract  StructureInterface {
     function getValue(uint256 _id) public virtual view returns (uint256);
