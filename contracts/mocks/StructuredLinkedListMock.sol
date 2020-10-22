@@ -74,11 +74,19 @@ contract StructuredLinkedListMock {
         emit LogNotice(_list.remove(_node) > 0 ? true : false);
     }
 
-    function push(uint256 _node, bool _direction) public {
-        emit LogNotice(_list.push(_node, _direction));
+    function pushFront(uint256 _node) public {
+        emit LogNotice(_list.pushFront(_node));
     }
 
-    function pop(bool _direction) public {
-        emit LogNotice(_list.pop(_direction) > 0 ? true : false);
+    function pushBack(uint256 _node) public {
+        emit LogNotice(_list.pushBack(_node));
+    }
+
+    function popFront() public {
+        emit LogNotice(_list.popFront() > 0 ? true : false);
+    }
+
+    function popBack() public {
+        emit LogNotice(_list.popBack() > 0 ? true : false);
     }
 }

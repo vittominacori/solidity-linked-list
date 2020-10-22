@@ -127,9 +127,9 @@ library StructuredLinkedList {
         if (sizeOf(self) == 0) {
             return 0;
         }
-        bool exists;
+
         uint256 next;
-        (exists, next) = getAdjacent(self, _HEAD, _NEXT);
+        (, next) = getAdjacent(self, _HEAD, _NEXT);
         while ((next != 0) && ((_value < IStructureInterface(_structure).getValue(next)) != _NEXT)) {
             next = self.list[next][_NEXT];
         }
@@ -181,10 +181,48 @@ library StructuredLinkedList {
      * @dev Pushes an entry to the head of the linked list
      * @param self stored linked list from contract
      * @param _node new entry to push to the head
+     * @return bool true if success, false otherwise
+     */
+    function pushFront(List storage self, uint256 _node) internal returns (bool) {
+        return _push(self, _node, _NEXT);
+    }
+
+    /**
+     * @dev Pushes an entry to the tail of the linked list
+     * @param self stored linked list from contract
+     * @param _node new entry to push to the tail
+     * @return bool true if success, false otherwise
+     */
+    function pushBack(List storage self, uint256 _node) internal returns (bool) {
+        return _push(self, _node, _PREV);
+    }
+
+    /**
+     * @dev Pops the first entry from the head of the linked list
+     * @param self stored linked list from contract
+     * @return uint256 the removed node
+     */
+    function popFront(List storage self) internal returns (uint256) {
+        return _pop(self, _NEXT);
+    }
+
+    /**
+     * @dev Pops the first entry from the tail of the linked list
+     * @param self stored linked list from contract
+     * @return uint256 the removed node
+     */
+    function popBack(List storage self) internal returns (uint256) {
+        return _pop(self, _PREV);
+    }
+
+    /**
+     * @dev Pushes an entry to the head of the linked list
+     * @param self stored linked list from contract
+     * @param _node new entry to push to the head
      * @param _direction push to the head (_NEXT) or tail (_PREV)
      * @return bool true if success, false otherwise
      */
-    function push(List storage self, uint256 _node, bool _direction) internal returns (bool) {
+    function _push(List storage self, uint256 _node, bool _direction) private returns (bool) {
         return _insert(self, _HEAD, _node, _direction);
     }
 
@@ -194,10 +232,9 @@ library StructuredLinkedList {
      * @param _direction pop from the head (_NEXT) or the tail (_PREV)
      * @return uint256 the removed node
      */
-    function pop(List storage self, bool _direction) internal returns (uint256) {
-        bool exists;
+    function _pop(List storage self, bool _direction) private returns (uint256) {
         uint256 adj;
-        (exists, adj) = getAdjacent(self, _HEAD, _direction);
+        (, adj) = getAdjacent(self, _HEAD, _direction);
         return remove(self, adj);
     }
 
