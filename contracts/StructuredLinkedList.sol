@@ -2,8 +2,8 @@
 
 pragma solidity ^0.7.0;
 
-abstract contract  StructureInterface {
-    function getValue(uint256 _id) public virtual view returns (uint256);
+interface  IStructureInterface {
+    function getValue(uint256 _id) external view returns (uint256);
 }
 
 /**
@@ -20,6 +20,7 @@ library StructuredLinkedList {
     bool private constant _NEXT = true;
 
     struct List {
+        uint256 size;
         mapping(uint256 => mapping(bool => uint256)) list;
     }
 
@@ -61,15 +62,7 @@ library StructuredLinkedList {
      * @return uint256
      */
     function sizeOf(List storage self) internal view returns (uint256) {
-        bool exists;
-        uint256 i;
-        uint256 numElements;
-        (exists, i) = getAdjacent(self, _HEAD, _NEXT);
-        while (i != _HEAD) {
-            (exists, i) = getAdjacent(self, i, _NEXT);
-            numElements++;
-        }
-        return numElements;
+        return self.size;
     }
 
     /**
@@ -137,40 +130,10 @@ library StructuredLinkedList {
         bool exists;
         uint256 next;
         (exists, next) = getAdjacent(self, _HEAD, _NEXT);
-        while ((next != 0) && ((_value < StructureInterface(_structure).getValue(next)) != _NEXT)) {
+        while ((next != 0) && ((_value < IStructureInterface(_structure).getValue(next)) != _NEXT)) {
             next = self.list[next][_NEXT];
         }
         return next;
-    }
-
-    /**
-     * @dev Creates a bidirectional link between two nodes on direction `_direction`
-     * @param self stored linked list from contract
-     * @param _node first node for linking
-     * @param _link  node to link to in the _direction
-     */
-    function createLink(List storage self, uint256 _node, uint256 _link, bool _direction) internal {
-        self.list[_link][!_direction] = _node;
-        self.list[_node][_direction] = _link;
-    }
-
-    /**
-     * @dev Insert node `_new` beside existing node `_node` in direction `_direction`.
-     * @param self stored linked list from contract
-     * @param _node existing node
-     * @param _new  new node to insert
-     * @param _direction direction to insert node in
-     * @return bool true if success, false otherwise
-     */
-    function insert(List storage self, uint256 _node, uint256 _new, bool _direction) internal returns (bool) {
-        if (!nodeExists(self, _new) && nodeExists(self, _node)) {
-            uint256 c = self.list[_node][_direction];
-            createLink(self, _node, _new, _direction);
-            createLink(self, _new, c, _direction);
-            return true;
-        } else {
-            return false;
-        }
     }
 
     /**
@@ -181,7 +144,7 @@ library StructuredLinkedList {
      * @return bool true if success, false otherwise
      */
     function insertAfter(List storage self, uint256 _node, uint256 _new) internal returns (bool) {
-        return insert(self, _node, _new, _NEXT);
+        return _insert(self, _node, _new, _NEXT);
     }
 
     /**
@@ -192,7 +155,7 @@ library StructuredLinkedList {
      * @return bool true if success, false otherwise
      */
     function insertBefore(List storage self, uint256 _node, uint256 _new) internal returns (bool) {
-        return insert(self, _node, _new, _PREV);
+        return _insert(self, _node, _new, _PREV);
     }
 
     /**
@@ -205,9 +168,12 @@ library StructuredLinkedList {
         if ((_node == _NULL) || (!nodeExists(self, _node))) {
             return 0;
         }
-        createLink(self, self.list[_node][_PREV], self.list[_node][_NEXT], _NEXT);
+        _createLink(self, self.list[_node][_PREV], self.list[_node][_NEXT], _NEXT);
         delete self.list[_node][_PREV];
         delete self.list[_node][_NEXT];
+
+        self.size -= 1; // NOT: SafeMath library should be used here to decrement.
+
         return _node;
     }
 
@@ -219,7 +185,7 @@ library StructuredLinkedList {
      * @return bool true if success, false otherwise
      */
     function push(List storage self, uint256 _node, bool _direction) internal returns (bool) {
-        return insert(self, _HEAD, _node, _direction);
+        return _insert(self, _HEAD, _node, _direction);
     }
 
     /**
@@ -233,5 +199,39 @@ library StructuredLinkedList {
         uint256 adj;
         (exists, adj) = getAdjacent(self, _HEAD, _direction);
         return remove(self, adj);
+    }
+
+    /**
+     * @dev Insert node `_new` beside existing node `_node` in direction `_direction`.
+     * @param self stored linked list from contract
+     * @param _node existing node
+     * @param _new  new node to insert
+     * @param _direction direction to insert node in
+     * @return bool true if success, false otherwise
+     */
+    function _insert(List storage self, uint256 _node, uint256 _new, bool _direction) private returns (bool) {
+        if (!nodeExists(self, _new) && nodeExists(self, _node)) {
+            uint256 c = self.list[_node][_direction];
+            _createLink(self, _node, _new, _direction);
+            _createLink(self, _new, c, _direction);
+
+            self.size += 1; // NOT: SafeMath library should be used here to increment.
+
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @dev Creates a bidirectional link between two nodes on direction `_direction`
+     * @param self stored linked list from contract
+     * @param _node existing node
+     * @param _link node to link to in the _direction
+     * @param _direction direction to insert node in
+     */
+    function _createLink(List storage self, uint256 _node, uint256 _link, bool _direction) private {
+        self.list[_link][!_direction] = _node;
+        self.list[_node][_direction] = _link;
     }
 }

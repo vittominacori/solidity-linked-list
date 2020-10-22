@@ -6,7 +6,7 @@ const INVALID_TOKEN_ID = new BN(111);
 const PREV = false;
 const NEXT = true;
 
-const StructuredLinkedList = artifacts.require('StructuredLinkedListMock.sol');
+const StructuredLinkedList = artifacts.require('StructuredLinkedListMock');
 
 contract('StructuredLinkedList', function ([owner]) {
   const value = new BN(1);
