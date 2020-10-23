@@ -7,6 +7,9 @@ module.exports = {
       ga: 'UA-115756440-2'
     }]
   ],
+  head: [
+    ['link', { rel: 'icon', href: '/favicon.ico' }],
+  ],
   themeConfig: {
     repo: 'vittominacori/solidity-linked-list',
     sidebar: 'auto',
