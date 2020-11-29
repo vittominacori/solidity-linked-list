@@ -1,7 +1,7 @@
 # Solidity Linked List
 
 [![NPM Package](https://img.shields.io/npm/v/solidity-linked-list.svg?style=flat-square)](https://www.npmjs.org/package/solidity-linked-list)
-[![Build Status](https://travis-ci.org/vittominacori/solidity-linked-list.svg?branch=master)](https://travis-ci.org/vittominacori/solidity-linked-list)
+[![CI](https://github.com/vittominacori/solidity-linked-list/workflows/CI/badge.svg?branch=master)](https://github.com/vittominacori/solidity-linked-list/actions/)
 [![Coverage Status](https://coveralls.io/repos/github/vittominacori/solidity-linked-list/badge.svg?branch=master)](https://coveralls.io/github/vittominacori/solidity-linked-list?branch=master)
 [![MIT licensed](https://img.shields.io/github/license/vittominacori/solidity-linked-list.svg)](https://github.com/vittominacori/solidity-linked-list/blob/master/LICENSE)
 
@@ -225,27 +225,27 @@ function popBack(List storage self) internal returns (uint256);
 npm install
 ```
 
-## Usage (using Truffle)
+### Usage (using Truffle)
 
 Open the Truffle console
 
 ```bash
-npm run console
+npm run truffle:console
 ```
 
-### Compile
+#### Compile
 
 ```bash
-npm run compile
+npm run truffle:compile
 ```
 
-### Test
+#### Test
 
 ```bash
-npm run test
+npm run truffle:test
 ```
 
-## Usage (using Hardhat)
+### Usage (using Hardhat)
 
 Open the Hardhat console
 
@@ -253,22 +253,22 @@ Open the Hardhat console
 npm run hardhat:console
 ```
 
-### Compile
+#### Compile
 
 ```bash
 npm run hardhat:compile
 ```
 
-### Test
+#### Test
 
 ```bash
 npm run hardhat:test
 ```
 
-### Code Coverage
+#### Code Coverage
 
 ```bash
-npm run coverage
+npm run hardhat:coverage
 ```
 
 ## Linter

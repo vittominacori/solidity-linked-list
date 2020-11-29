@@ -9,13 +9,18 @@ logs
 pids
 *.pid
 *.seed
-allFiredEvents
 scTopics
 
 # Coverage directory used by tools like istanbul
 /coverage
 /coverageEnv
 coverage.json
+
+# temporary artifact from solidity-coverage
+allFiredEvents
+.coverage_artifacts
+.coverage_cache
+.coverage_contracts
 
 # node-waf configuration
 .lock-wscript
@@ -32,6 +37,10 @@ npm-debug.log
 # truffle build directory
 /build
 
+# Hardhat files
+/artifacts
+/cache
+
 # macOS
 .DS_Store
 
@@ -44,9 +53,5 @@ package-lock.json
 # IntelliJ IDE
 .idea
 
-# Hardhat files
-/artifacts
-/cache
-
 # vuepress
-/docs/.vuepress/dist/
+docs/.vuepress/dist/
