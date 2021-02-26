@@ -1,6 +1,6 @@
 {
   "name": "solidity-linked-list",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "description": "An utility library for using sorted linked list data structures in your Solidity project",
   "files": [
     "contracts",
@@ -49,21 +49,21 @@
     "@nomiclabs/hardhat-ganache": "^2.0.0",
     "@nomiclabs/hardhat-truffle5": "^2.0.0",
     "@nomiclabs/hardhat-web3": "^2.0.0",
-    "@openzeppelin/test-helpers": "^0.5.9",
-    "@vuepress/plugin-google-analytics": "^1.7.1",
-    "chai": "^4.2.0",
-    "eslint": "^7.14.0",
+    "@openzeppelin/test-helpers": "^0.5.10",
+    "@vuepress/plugin-google-analytics": "^1.8.2",
+    "chai": "^4.3.0",
+    "eslint": "^7.20.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-mocha-no-only": "^1.1.1",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-promise": "^4.3.1",
     "eslint-plugin-standard": "^5.0.0",
-    "ganache-cli": "^6.12.1",
-    "hardhat": "^2.0.4",
+    "ganache-cli": "^6.12.2",
+    "hardhat": "^2.0.11",
     "solhint": "^3.3.2",
-    "solidity-coverage": "^0.7.12",
-    "truffle": "^5.1.55",
-    "vuepress": "^1.7.1"
+    "solidity-coverage": "^0.7.15",
+    "truffle": "^5.1.67",
+    "vuepress": "^1.8.2"
   }
 }
