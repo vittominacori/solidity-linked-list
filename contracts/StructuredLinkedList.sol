@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.0;
 
-interface  IStructureInterface {
+interface IStructureInterface {
     function getValue(uint256 _id) external view returns (uint256);
 }
 
@@ -12,7 +12,6 @@ interface  IStructureInterface {
  * @dev An utility library for using sorted linked list data structures in your Solidity project.
  */
 library StructuredLinkedList {
-
     uint256 private constant _NULL = 0;
     uint256 private constant _HEAD = 0;
 
