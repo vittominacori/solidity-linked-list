@@ -16,23 +16,23 @@ contract('StructuredLinkedList', function ([owner]) {
     describe('listExists', function () {
       it('should be false', async function () {
         const exists = await this.list.listExists();
-        exists.should.be.equal(false);
+        expect(exists).be.equal(false);
       });
     });
 
     describe('sizeOf', function () {
       it('should be zero', async function () {
         const sizeOf = await this.list.sizeOf();
-        sizeOf.should.be.bignumber.equal(new BN(0));
+        expect(sizeOf).to.be.bignumber.equal(new BN(0));
       });
     });
 
     describe('getNode', function () {
       it('should not exists', async function () {
         const node = await this.list.getNode(1);
-        node[0].should.be.equal(false);
-        node[1].should.be.bignumber.equal(HEAD);
-        node[2].should.be.bignumber.equal(HEAD);
+        expect(node[0]).be.equal(false);
+        expect(node[1]).to.be.bignumber.equal(HEAD);
+        expect(node[2]).to.be.bignumber.equal(HEAD);
       });
     });
   });
@@ -50,46 +50,46 @@ contract('StructuredLinkedList', function ([owner]) {
       describe('listExists', function () {
         it('should be true', async function () {
           const exists = await this.list.listExists();
-          exists.should.be.equal(true);
+          expect(exists).be.equal(true);
         });
       });
 
       describe('sizeOf', function () {
         it('should be greater than zero', async function () {
           const sizeOf = await this.list.sizeOf();
-          sizeOf.should.be.bignumber.gt(new BN(0));
+          expect(sizeOf).to.be.bignumber.gt(new BN(0));
         });
       });
 
       describe('nodeExists', function () {
         it('should be true', async function () {
           const nodeExists = await this.list.nodeExists(tokenId);
-          nodeExists.should.be.equal(true);
+          expect(nodeExists).be.equal(true);
         });
       });
 
       describe('getNode', function () {
         it('PREV and NEXT should be HEAD', async function () {
           const node = await this.list.getNode(tokenId);
-          node[0].should.be.equal(true);
-          node[1].should.be.bignumber.equal(HEAD);
-          node[2].should.be.bignumber.equal(HEAD);
+          expect(node[0]).be.equal(true);
+          expect(node[1]).to.be.bignumber.equal(HEAD);
+          expect(node[2]).to.be.bignumber.equal(HEAD);
         });
       });
 
       describe('getNextNode of not existent node', function () {
         it('should be false', async function () {
           const node = await this.list.getNextNode(INVALID_TOKEN_ID);
-          node[0].should.be.equal(false);
-          node[1].should.be.bignumber.equal(HEAD);
+          expect(node[0]).be.equal(false);
+          expect(node[1]).to.be.bignumber.equal(HEAD);
         });
       });
 
       describe('getPreviousNode of not existent node', function () {
         it('should be false', async function () {
           const node = await this.list.getPreviousNode(INVALID_TOKEN_ID);
-          node[0].should.be.equal(false);
-          node[1].should.be.bignumber.equal(HEAD);
+          expect(node[0]).be.equal(false);
+          expect(node[1]).to.be.bignumber.equal(HEAD);
         });
       });
 
@@ -105,9 +105,9 @@ contract('StructuredLinkedList', function ([owner]) {
           });
 
           const node = await this.list.getNode(newTokenId);
-          node[0].should.be.equal(false);
-          node[1].should.be.bignumber.equal(HEAD);
-          node[2].should.be.bignumber.equal(HEAD);
+          expect(node[0]).be.equal(false);
+          expect(node[1]).to.be.bignumber.equal(HEAD);
+          expect(node[2]).to.be.bignumber.equal(HEAD);
         });
       });
 
@@ -123,9 +123,9 @@ contract('StructuredLinkedList', function ([owner]) {
           });
 
           const node = await this.list.getNode(newTokenId);
-          node[0].should.be.equal(false);
-          node[1].should.be.bignumber.equal(HEAD);
-          node[2].should.be.bignumber.equal(HEAD);
+          expect(node[0]).be.equal(false);
+          expect(node[1]).to.be.bignumber.equal(HEAD);
+          expect(node[2]).to.be.bignumber.equal(HEAD);
         });
       });
 
@@ -178,27 +178,27 @@ contract('StructuredLinkedList', function ([owner]) {
         });
 
         it('node PREV should be HEAD', async function () {
-          node[1].should.be.bignumber.equal(HEAD);
+          expect(node[1]).to.be.bignumber.equal(HEAD);
         });
 
         it('node NEXT should be firstNode', async function () {
-          node[2].should.be.bignumber.equal(firstTokenId);
+          expect(node[2]).to.be.bignumber.equal(firstTokenId);
         });
 
         it('firstNode PREV should be node', async function () {
-          firstNode[1].should.be.bignumber.equal(tokenId);
+          expect(firstNode[1]).to.be.bignumber.equal(tokenId);
         });
 
         it('firstNode NEXT should be secondNode', async function () {
-          firstNode[2].should.be.bignumber.equal(secondTokenId);
+          expect(firstNode[2]).to.be.bignumber.equal(secondTokenId);
         });
 
         it('secondNode PREV should be firstNode', async function () {
-          secondNode[1].should.be.bignumber.equal(firstTokenId);
+          expect(secondNode[1]).to.be.bignumber.equal(firstTokenId);
         });
 
         it('secondNode NEXT should be HEAD', async function () {
-          secondNode[2].should.be.bignumber.equal(HEAD);
+          expect(secondNode[2]).to.be.bignumber.equal(HEAD);
         });
 
         context('testing getNextNode', function () {
@@ -206,9 +206,9 @@ contract('StructuredLinkedList', function ([owner]) {
             it('should be firstNode', async function () {
               const retrievedTokenId = await this.list.getNextNode(tokenId);
               const retrievedNode = await this.list.getNode(retrievedTokenId[1]);
-              retrievedNode[0].should.be.equal(true);
-              retrievedNode[1].should.be.bignumber.equal(tokenId);
-              retrievedNode[2].should.be.bignumber.equal(secondTokenId);
+              expect(retrievedNode[0]).be.equal(true);
+              expect(retrievedNode[1]).to.be.bignumber.equal(tokenId);
+              expect(retrievedNode[2]).to.be.bignumber.equal(secondTokenId);
             });
           });
 
@@ -216,17 +216,17 @@ contract('StructuredLinkedList', function ([owner]) {
             it('should be secondNode', async function () {
               const retrievedTokenId = await this.list.getNextNode(firstTokenId);
               const retrievedNode = await this.list.getNode(retrievedTokenId[1]);
-              retrievedNode[0].should.be.equal(true);
-              retrievedNode[1].should.be.bignumber.equal(firstTokenId);
-              retrievedNode[2].should.be.bignumber.equal(HEAD);
+              expect(retrievedNode[0]).be.equal(true);
+              expect(retrievedNode[1]).to.be.bignumber.equal(firstTokenId);
+              expect(retrievedNode[2]).to.be.bignumber.equal(HEAD);
             });
           });
 
           describe('using secondNode', function () {
             it('should be HEAD', async function () {
               const retrievedTokenId = await this.list.getNextNode(secondTokenId);
-              retrievedTokenId[0].should.be.equal(true);
-              retrievedTokenId[1].should.be.bignumber.equal(HEAD);
+              expect(retrievedTokenId[0]).be.equal(true);
+              expect(retrievedTokenId[1]).to.be.bignumber.equal(HEAD);
             });
           });
         });
@@ -236,9 +236,9 @@ contract('StructuredLinkedList', function ([owner]) {
             it('should be HEAD', async function () {
               const retrievedTokenId = await this.list.getPreviousNode(tokenId);
               const retrievedNode = await this.list.getNode(retrievedTokenId[1]);
-              retrievedNode[0].should.be.equal(true);
-              retrievedNode[1].should.be.bignumber.equal(secondTokenId);
-              retrievedNode[2].should.be.bignumber.equal(tokenId);
+              expect(retrievedNode[0]).be.equal(true);
+              expect(retrievedNode[1]).to.be.bignumber.equal(secondTokenId);
+              expect(retrievedNode[2]).to.be.bignumber.equal(tokenId);
             });
           });
 
@@ -246,9 +246,9 @@ contract('StructuredLinkedList', function ([owner]) {
             it('should be node', async function () {
               const retrievedTokenId = await this.list.getPreviousNode(firstTokenId);
               const retrievedNode = await this.list.getNode(retrievedTokenId[1]);
-              retrievedNode[0].should.be.equal(true);
-              retrievedNode[1].should.be.bignumber.equal(HEAD);
-              retrievedNode[2].should.be.bignumber.equal(firstTokenId);
+              expect(retrievedNode[0]).be.equal(true);
+              expect(retrievedNode[1]).to.be.bignumber.equal(HEAD);
+              expect(retrievedNode[2]).to.be.bignumber.equal(firstTokenId);
             });
           });
 
@@ -256,9 +256,9 @@ contract('StructuredLinkedList', function ([owner]) {
             it('should be firstNode', async function () {
               const retrievedTokenId = await this.list.getPreviousNode(secondTokenId);
               const retrievedNode = await this.list.getNode(retrievedTokenId[1]);
-              retrievedNode[0].should.be.equal(true);
-              retrievedNode[1].should.be.bignumber.equal(tokenId);
-              retrievedNode[2].should.be.bignumber.equal(secondTokenId);
+              expect(retrievedNode[0]).be.equal(true);
+              expect(retrievedNode[1]).to.be.bignumber.equal(tokenId);
+              expect(retrievedNode[2]).to.be.bignumber.equal(secondTokenId);
             });
           });
         });
@@ -278,25 +278,25 @@ contract('StructuredLinkedList', function ([owner]) {
 
             it('node should no longer exists', async function () {
               node = await this.list.getNode(tokenId);
-              node[0].should.be.equal(false);
-              node[1].should.be.bignumber.equal(HEAD);
-              node[2].should.be.bignumber.equal(HEAD);
+              expect(node[0]).be.equal(false);
+              expect(node[1]).to.be.bignumber.equal(HEAD);
+              expect(node[2]).to.be.bignumber.equal(HEAD);
             });
 
             it('firstNode PREV should be HEAD', async function () {
-              firstNode[1].should.be.bignumber.equal(HEAD);
+              expect(firstNode[1]).to.be.bignumber.equal(HEAD);
             });
 
             it('firstNode NEXT should be secondNode', async function () {
-              firstNode[2].should.be.bignumber.equal(secondTokenId);
+              expect(firstNode[2]).to.be.bignumber.equal(secondTokenId);
             });
 
             it('secondNode PREV should be firstNode', async function () {
-              secondNode[1].should.be.bignumber.equal(firstTokenId);
+              expect(secondNode[1]).to.be.bignumber.equal(firstTokenId);
             });
 
             it('secondNode NEXT should be HEAD', async function () {
-              secondNode[2].should.be.bignumber.equal(HEAD);
+              expect(secondNode[2]).to.be.bignumber.equal(HEAD);
             });
           });
 
@@ -314,25 +314,25 @@ contract('StructuredLinkedList', function ([owner]) {
 
             it('firstNode should no longer exists', async function () {
               firstNode = await this.list.getNode(firstTokenId);
-              firstNode[0].should.be.equal(false);
-              firstNode[1].should.be.bignumber.equal(HEAD);
-              firstNode[2].should.be.bignumber.equal(HEAD);
+              expect(firstNode[0]).be.equal(false);
+              expect(firstNode[1]).to.be.bignumber.equal(HEAD);
+              expect(firstNode[2]).to.be.bignumber.equal(HEAD);
             });
 
             it('node PREV should be HEAD', async function () {
-              node[1].should.be.bignumber.equal(HEAD);
+              expect(node[1]).to.be.bignumber.equal(HEAD);
             });
 
             it('node NEXT should be secondNode', async function () {
-              node[2].should.be.bignumber.equal(secondTokenId);
+              expect(node[2]).to.be.bignumber.equal(secondTokenId);
             });
 
             it('secondNode PREV should be node', async function () {
-              secondNode[1].should.be.bignumber.equal(tokenId);
+              expect(secondNode[1]).to.be.bignumber.equal(tokenId);
             });
 
             it('secondNode NEXT should be HEAD', async function () {
-              secondNode[2].should.be.bignumber.equal(HEAD);
+              expect(secondNode[2]).to.be.bignumber.equal(HEAD);
             });
           });
 
@@ -350,25 +350,25 @@ contract('StructuredLinkedList', function ([owner]) {
 
             it('secondNode should no longer exists', async function () {
               secondNode = await this.list.getNode(secondTokenId);
-              secondNode[0].should.be.equal(false);
-              secondNode[1].should.be.bignumber.equal(HEAD);
-              secondNode[2].should.be.bignumber.equal(HEAD);
+              expect(secondNode[0]).be.equal(false);
+              expect(secondNode[1]).to.be.bignumber.equal(HEAD);
+              expect(secondNode[2]).to.be.bignumber.equal(HEAD);
             });
 
             it('node PREV should be HEAD', async function () {
-              node[1].should.be.bignumber.equal(HEAD);
+              expect(node[1]).to.be.bignumber.equal(HEAD);
             });
 
             it('node NEXT should be firstNode', async function () {
-              node[2].should.be.bignumber.equal(firstTokenId);
+              expect(node[2]).to.be.bignumber.equal(firstTokenId);
             });
 
             it('firstNode PREV should be node', async function () {
-              firstNode[1].should.be.bignumber.equal(tokenId);
+              expect(firstNode[1]).to.be.bignumber.equal(tokenId);
             });
 
             it('firstNode NEXT should be HEAD', async function () {
-              firstNode[2].should.be.bignumber.equal(HEAD);
+              expect(firstNode[2]).to.be.bignumber.equal(HEAD);
             });
           });
         });
@@ -388,25 +388,25 @@ contract('StructuredLinkedList', function ([owner]) {
 
             it('node should no longer exists', async function () {
               node = await this.list.getNode(tokenId);
-              node[0].should.be.equal(false);
-              node[1].should.be.bignumber.equal(HEAD);
-              node[2].should.be.bignumber.equal(HEAD);
+              expect(node[0]).be.equal(false);
+              expect(node[1]).to.be.bignumber.equal(HEAD);
+              expect(node[2]).to.be.bignumber.equal(HEAD);
             });
 
             it('firstNode PREV should be HEAD', async function () {
-              firstNode[1].should.be.bignumber.equal(HEAD);
+              expect(firstNode[1]).to.be.bignumber.equal(HEAD);
             });
 
             it('firstNode NEXT should be secondNode', async function () {
-              firstNode[2].should.be.bignumber.equal(secondTokenId);
+              expect(firstNode[2]).to.be.bignumber.equal(secondTokenId);
             });
 
             it('secondNode PREV should be firstNode', async function () {
-              secondNode[1].should.be.bignumber.equal(firstTokenId);
+              expect(secondNode[1]).to.be.bignumber.equal(firstTokenId);
             });
 
             it('secondNode NEXT should be HEAD', async function () {
-              secondNode[2].should.be.bignumber.equal(HEAD);
+              expect(secondNode[2]).to.be.bignumber.equal(HEAD);
             });
           });
 
@@ -424,25 +424,25 @@ contract('StructuredLinkedList', function ([owner]) {
 
             it('secondNode should no longer exists', async function () {
               secondNode = await this.list.getNode(secondTokenId);
-              secondNode[0].should.be.equal(false);
-              secondNode[1].should.be.bignumber.equal(HEAD);
-              secondNode[2].should.be.bignumber.equal(HEAD);
+              expect(secondNode[0]).be.equal(false);
+              expect(secondNode[1]).to.be.bignumber.equal(HEAD);
+              expect(secondNode[2]).to.be.bignumber.equal(HEAD);
             });
 
             it('node PREV should be HEAD', async function () {
-              node[1].should.be.bignumber.equal(HEAD);
+              expect(node[1]).to.be.bignumber.equal(HEAD);
             });
 
             it('node NEXT should be firstNode', async function () {
-              node[2].should.be.bignumber.equal(firstTokenId);
+              expect(node[2]).to.be.bignumber.equal(firstTokenId);
             });
 
             it('firstNode PREV should be node', async function () {
-              firstNode[1].should.be.bignumber.equal(tokenId);
+              expect(firstNode[1]).to.be.bignumber.equal(tokenId);
             });
 
             it('firstNode NEXT should be HEAD', async function () {
-              firstNode[2].should.be.bignumber.equal(HEAD);
+              expect(firstNode[2]).to.be.bignumber.equal(HEAD);
             });
           });
         });
@@ -469,15 +469,15 @@ contract('StructuredLinkedList', function ([owner]) {
             });
 
             it('node PREV should be thirdNode', async function () {
-              node[1].should.be.bignumber.equal(thirdTokenId);
+              expect(node[1]).to.be.bignumber.equal(thirdTokenId);
             });
 
             it('thirdNode PREV should be HEAD', async function () {
-              thirdNode[1].should.be.bignumber.equal(HEAD);
+              expect(thirdNode[1]).to.be.bignumber.equal(HEAD);
             });
 
             it('thirdNode NEXT should be node', async function () {
-              thirdNode[2].should.be.bignumber.equal(tokenId);
+              expect(thirdNode[2]).to.be.bignumber.equal(tokenId);
             });
           });
 
@@ -494,15 +494,15 @@ contract('StructuredLinkedList', function ([owner]) {
             });
 
             it('secondNode NEXT should be thirdNode', async function () {
-              secondNode[2].should.be.bignumber.equal(thirdTokenId);
+              expect(secondNode[2]).to.be.bignumber.equal(thirdTokenId);
             });
 
             it('thirdNode PREV should be secondNode', async function () {
-              thirdNode[1].should.be.bignumber.equal(secondTokenId);
+              expect(thirdNode[1]).to.be.bignumber.equal(secondTokenId);
             });
 
             it('thirdNode NEXT should be HEAD', async function () {
-              thirdNode[2].should.be.bignumber.equal(HEAD);
+              expect(thirdNode[2]).to.be.bignumber.equal(HEAD);
             });
           });
         });
@@ -532,35 +532,35 @@ contract('StructuredLinkedList', function ([owner]) {
         });
 
         it('node PREV should be firstNode', async function () {
-          node[1].should.be.bignumber.equal(firstTokenId);
+          expect(node[1]).to.be.bignumber.equal(firstTokenId);
         });
 
         it('node NEXT should be HEAD', async function () {
-          node[2].should.be.bignumber.equal(HEAD);
+          expect(node[2]).to.be.bignumber.equal(HEAD);
         });
 
         it('firstNode PREV should be secondNode', async function () {
-          firstNode[1].should.be.bignumber.equal(secondTokenId);
+          expect(firstNode[1]).to.be.bignumber.equal(secondTokenId);
         });
 
         it('firstNode NEXT should be node', async function () {
-          firstNode[2].should.be.bignumber.equal(tokenId);
+          expect(firstNode[2]).to.be.bignumber.equal(tokenId);
         });
 
         it('secondNode PREV should be HEAD', async function () {
-          secondNode[1].should.be.bignumber.equal(HEAD);
+          expect(secondNode[1]).to.be.bignumber.equal(HEAD);
         });
 
         it('secondNode NEXT should be firstNode', async function () {
-          secondNode[2].should.be.bignumber.equal(firstTokenId);
+          expect(secondNode[2]).to.be.bignumber.equal(firstTokenId);
         });
 
         context('testing getNextNode', function () {
           describe('using node', function () {
             it('should be HEAD', async function () {
               const retrievedTokenId = await this.list.getNextNode(tokenId);
-              retrievedTokenId[0].should.be.equal(true);
-              retrievedTokenId[1].should.be.bignumber.equal(HEAD);
+              expect(retrievedTokenId[0]).be.equal(true);
+              expect(retrievedTokenId[1]).to.be.bignumber.equal(HEAD);
             });
           });
 
@@ -568,9 +568,9 @@ contract('StructuredLinkedList', function ([owner]) {
             it('should be node', async function () {
               const retrievedTokenId = await this.list.getNextNode(firstTokenId);
               const retrievedNode = await this.list.getNode(retrievedTokenId[1]);
-              retrievedNode[0].should.be.equal(true);
-              retrievedNode[1].should.be.bignumber.equal(firstTokenId);
-              retrievedNode[2].should.be.bignumber.equal(HEAD);
+              expect(retrievedNode[0]).be.equal(true);
+              expect(retrievedNode[1]).to.be.bignumber.equal(firstTokenId);
+              expect(retrievedNode[2]).to.be.bignumber.equal(HEAD);
             });
           });
 
@@ -578,9 +578,9 @@ contract('StructuredLinkedList', function ([owner]) {
             it('should be firstNode', async function () {
               const retrievedTokenId = await this.list.getNextNode(secondTokenId);
               const retrievedNode = await this.list.getNode(retrievedTokenId[1]);
-              retrievedNode[0].should.be.equal(true);
-              retrievedNode[1].should.be.bignumber.equal(secondTokenId);
-              retrievedNode[2].should.be.bignumber.equal(tokenId);
+              expect(retrievedNode[0]).be.equal(true);
+              expect(retrievedNode[1]).to.be.bignumber.equal(secondTokenId);
+              expect(retrievedNode[2]).to.be.bignumber.equal(tokenId);
             });
           });
         });
@@ -590,9 +590,9 @@ contract('StructuredLinkedList', function ([owner]) {
             it('should be HEAD', async function () {
               const retrievedTokenId = await this.list.getPreviousNode(secondTokenId);
               const retrievedNode = await this.list.getNode(retrievedTokenId[1]);
-              retrievedNode[0].should.be.equal(true);
-              retrievedNode[1].should.be.bignumber.equal(tokenId);
-              retrievedNode[2].should.be.bignumber.equal(secondTokenId);
+              expect(retrievedNode[0]).be.equal(true);
+              expect(retrievedNode[1]).to.be.bignumber.equal(tokenId);
+              expect(retrievedNode[2]).to.be.bignumber.equal(secondTokenId);
             });
           });
 
@@ -600,9 +600,9 @@ contract('StructuredLinkedList', function ([owner]) {
             it('should be secondNode', async function () {
               const retrievedTokenId = await this.list.getPreviousNode(firstTokenId);
               const retrievedNode = await this.list.getNode(retrievedTokenId[1]);
-              retrievedNode[0].should.be.equal(true);
-              retrievedNode[1].should.be.bignumber.equal(HEAD);
-              retrievedNode[2].should.be.bignumber.equal(firstTokenId);
+              expect(retrievedNode[0]).be.equal(true);
+              expect(retrievedNode[1]).to.be.bignumber.equal(HEAD);
+              expect(retrievedNode[2]).to.be.bignumber.equal(firstTokenId);
             });
           });
 
@@ -610,9 +610,9 @@ contract('StructuredLinkedList', function ([owner]) {
             it('should be HEAD', async function () {
               const retrievedTokenId = await this.list.getPreviousNode(tokenId);
               const retrievedNode = await this.list.getNode(retrievedTokenId[1]);
-              retrievedNode[0].should.be.equal(true);
-              retrievedNode[1].should.be.bignumber.equal(secondTokenId);
-              retrievedNode[2].should.be.bignumber.equal(tokenId);
+              expect(retrievedNode[0]).be.equal(true);
+              expect(retrievedNode[1]).to.be.bignumber.equal(secondTokenId);
+              expect(retrievedNode[2]).to.be.bignumber.equal(tokenId);
             });
           });
         });
@@ -657,27 +657,27 @@ contract('StructuredLinkedList', function ([owner]) {
         });
 
         it('secondNode PREV should be HEAD', async function () {
-          secondNode[1].should.be.bignumber.equal(HEAD);
+          expect(secondNode[1]).to.be.bignumber.equal(HEAD);
         });
 
         it('secondNode NEXT should be node', async function () {
-          secondNode[2].should.be.bignumber.equal(tokenId);
+          expect(secondNode[2]).to.be.bignumber.equal(tokenId);
         });
 
         it('node PREV should be secondNode', async function () {
-          node[1].should.be.bignumber.equal(secondTokenId);
+          expect(node[1]).to.be.bignumber.equal(secondTokenId);
         });
 
         it('node NEXT should be firstNode', async function () {
-          node[2].should.be.bignumber.equal(firstTokenId);
+          expect(node[2]).to.be.bignumber.equal(firstTokenId);
         });
 
         it('firstNode PREV should be node', async function () {
-          firstNode[1].should.be.bignumber.equal(tokenId);
+          expect(firstNode[1]).to.be.bignumber.equal(tokenId);
         });
 
         it('firstNode NEXT should be HEAD', async function () {
-          firstNode[2].should.be.bignumber.equal(HEAD);
+          expect(firstNode[2]).to.be.bignumber.equal(HEAD);
         });
 
         context('testing remove', function () {
@@ -695,25 +695,25 @@ contract('StructuredLinkedList', function ([owner]) {
 
             it('node should no longer exists', async function () {
               node = await this.list.getNode(tokenId);
-              node[0].should.be.equal(false);
-              node[1].should.be.bignumber.equal(HEAD);
-              node[2].should.be.bignumber.equal(HEAD);
+              expect(node[0]).be.equal(false);
+              expect(node[1]).to.be.bignumber.equal(HEAD);
+              expect(node[2]).to.be.bignumber.equal(HEAD);
             });
 
             it('firstNode PREV should be secondNode', async function () {
-              firstNode[1].should.be.bignumber.equal(secondTokenId);
+              expect(firstNode[1]).to.be.bignumber.equal(secondTokenId);
             });
 
             it('firstNode NEXT should be HEAD', async function () {
-              firstNode[2].should.be.bignumber.equal(HEAD);
+              expect(firstNode[2]).to.be.bignumber.equal(HEAD);
             });
 
             it('secondNode PREV should be HEAD', async function () {
-              secondNode[1].should.be.bignumber.equal(HEAD);
+              expect(secondNode[1]).to.be.bignumber.equal(HEAD);
             });
 
             it('secondNode NEXT should be firstNode', async function () {
-              secondNode[2].should.be.bignumber.equal(firstTokenId);
+              expect(secondNode[2]).to.be.bignumber.equal(firstTokenId);
             });
           });
 
@@ -731,25 +731,25 @@ contract('StructuredLinkedList', function ([owner]) {
 
             it('firstNode should no longer exists', async function () {
               firstNode = await this.list.getNode(firstTokenId);
-              firstNode[0].should.be.equal(false);
-              firstNode[1].should.be.bignumber.equal(HEAD);
-              firstNode[2].should.be.bignumber.equal(HEAD);
+              expect(firstNode[0]).be.equal(false);
+              expect(firstNode[1]).to.be.bignumber.equal(HEAD);
+              expect(firstNode[2]).to.be.bignumber.equal(HEAD);
             });
 
             it('node PREV should be secondNode', async function () {
-              node[1].should.be.bignumber.equal(secondTokenId);
+              expect(node[1]).to.be.bignumber.equal(secondTokenId);
             });
 
             it('node NEXT should be HEAD', async function () {
-              node[2].should.be.bignumber.equal(HEAD);
+              expect(node[2]).to.be.bignumber.equal(HEAD);
             });
 
             it('secondNode PREV should be HEAD', async function () {
-              secondNode[1].should.be.bignumber.equal(HEAD);
+              expect(secondNode[1]).to.be.bignumber.equal(HEAD);
             });
 
             it('secondNode NEXT should be node', async function () {
-              secondNode[2].should.be.bignumber.equal(tokenId);
+              expect(secondNode[2]).to.be.bignumber.equal(tokenId);
             });
           });
 
@@ -767,25 +767,25 @@ contract('StructuredLinkedList', function ([owner]) {
 
             it('secondNode should no longer exists', async function () {
               secondNode = await this.list.getNode(secondTokenId);
-              secondNode[0].should.be.equal(false);
-              secondNode[1].should.be.bignumber.equal(HEAD);
-              secondNode[2].should.be.bignumber.equal(HEAD);
+              expect(secondNode[0]).be.equal(false);
+              expect(secondNode[1]).to.be.bignumber.equal(HEAD);
+              expect(secondNode[2]).to.be.bignumber.equal(HEAD);
             });
 
             it('node PREV should be HEAD', async function () {
-              node[1].should.be.bignumber.equal(HEAD);
+              expect(node[1]).to.be.bignumber.equal(HEAD);
             });
 
             it('node NEXT should be firstNode', async function () {
-              node[2].should.be.bignumber.equal(firstTokenId);
+              expect(node[2]).to.be.bignumber.equal(firstTokenId);
             });
 
             it('firstNode PREV should be node', async function () {
-              firstNode[1].should.be.bignumber.equal(tokenId);
+              expect(firstNode[1]).to.be.bignumber.equal(tokenId);
             });
 
             it('firstNode NEXT should be HEAD', async function () {
-              firstNode[2].should.be.bignumber.equal(HEAD);
+              expect(firstNode[2]).to.be.bignumber.equal(HEAD);
             });
           });
         });

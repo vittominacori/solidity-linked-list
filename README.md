@@ -2,7 +2,7 @@
 
 [![NPM Package](https://img.shields.io/npm/v/solidity-linked-list.svg?style=flat-square)](https://www.npmjs.org/package/solidity-linked-list)
 [![CI](https://github.com/vittominacori/solidity-linked-list/workflows/CI/badge.svg?branch=master)](https://github.com/vittominacori/solidity-linked-list/actions/)
-[![Coverage Status](https://coveralls.io/repos/github/vittominacori/solidity-linked-list/badge.svg?branch=master)](https://coveralls.io/github/vittominacori/solidity-linked-list?branch=master)
+[![Coverage Status](https://codecov.io/gh/vittominacori/solidity-linked-list/graph/badge.svg)](https://codecov.io/gh/vittominacori/solidity-linked-list)
 [![MIT licensed](https://img.shields.io/github/license/vittominacori/solidity-linked-list.svg)](https://github.com/vittominacori/solidity-linked-list/blob/master/LICENSE)
 
 An utility library for using sorted linked list data structures in your Solidity project.
@@ -225,67 +225,47 @@ function popBack(List storage self) internal returns (uint256);
 npm install
 ```
 
-### Usage (using Truffle)
-
-Open the Truffle console
-
-```bash
-npm run truffle:console
-```
-
-#### Compile
-
-```bash
-npm run truffle:compile
-```
-
-#### Test
-
-```bash
-npm run truffle:test
-```
-
 ### Usage (using Hardhat)
 
-Open the Hardhat console
+Open the console
 
 ```bash
-npm run hardhat:console
+npm run console
 ```
 
 #### Compile
 
 ```bash
-npm run hardhat:compile
+npm run compile
 ```
 
 #### Test
 
 ```bash
-npm run hardhat:test
+npm test
 ```
 
 #### Code Coverage
 
 ```bash
-npm run hardhat:coverage
+npm run coverage
 ```
 
-## Linter
+### Linter
 
-Use Solhint
+Check Solidity files
 
 ```bash
 npm run lint:sol
 ```
 
-Use ESLint
+Check JS/TS files
 
 ```bash
 npm run lint:js
 ```
 
-Use ESLint and fix
+Fix JS and Solidity files
 
 ```bash
 npm run lint:fix
