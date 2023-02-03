@@ -5,7 +5,7 @@ module.exports = {
   description: 'An utility library for using sorted linked list data structures in your Solidity project',
   base: '/solidity-linked-list/',
   plugins: [
-    ['@vuepress/google-analytics', {
+    ['google-gtag', {
       ga: vars.gaId,
     }]
   ],
