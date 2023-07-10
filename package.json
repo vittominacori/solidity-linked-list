@@ -1,6 +1,6 @@
 {
   "name": "solidity-linked-list",
-  "version": "5.2.0",
+  "version": "5.2.1",
   "description": "An utility library for using sorted linked list data structures in your Solidity project",
   "files": [
     "contracts",
@@ -53,19 +53,19 @@
     "@nomiclabs/hardhat-web3": "^2.0.0",
     "@openzeppelin/test-helpers": "^0.5.16",
     "chai": "^4.3.7",
-    "eslint": "^8.32.0",
-    "eslint-config-standard": "^17.0.0",
-    "eslint-config-prettier": "^8.6.0",
+    "eslint": "^8.44.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-mocha-no-only": "^1.1.1",
-    "hardhat": "^2.12.6",
-    "hardhat-exposed": "^0.3.0",
-    "prettier": "^2.8.3",
-    "prettier-plugin-solidity": "^1.1.1",
-    "solhint": "^3.3.8",
+    "hardhat": "^2.16.1",
+    "hardhat-exposed": "^0.3.11",
+    "prettier": "^2.8.8",
+    "prettier-plugin-solidity": "^1.1.3",
+    "solhint": "^3.4.1",
     "solhint-plugin-prettier": "^0.0.5",
-    "solidity-coverage": "^0.8.2",
-    "truffle": "^5.7.3",
-    "vuepress": "^1.9.8",
+    "solidity-coverage": "^0.8.4",
+    "truffle": "^5.10.2",
+    "vuepress": "^1.9.9",
     "vuepress-plugin-google-gtag": "^1.0.1"
   }
 }
