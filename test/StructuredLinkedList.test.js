@@ -98,9 +98,9 @@ contract('StructuredLinkedList', function ([owner]) {
           await this.list.createStructure(value);
 
           const newTokenId = await this.list.progressiveId();
-          const { logs } = await this.list.insertAfter(INVALID_TOKEN_ID, newTokenId);
+          const receipt = await this.list.insertAfter(INVALID_TOKEN_ID, newTokenId);
 
-          expectEvent.inLogs(logs, 'LogNotice', {
+          expectEvent(receipt, 'LogNotice', {
             booleanValue: false,
           });
 
@@ -116,9 +116,9 @@ contract('StructuredLinkedList', function ([owner]) {
           await this.list.createStructure(value);
 
           const newTokenId = await this.list.progressiveId();
-          const { logs } = await this.list.insertBefore(INVALID_TOKEN_ID, newTokenId);
+          const receipt = await this.list.insertBefore(INVALID_TOKEN_ID, newTokenId);
 
-          expectEvent.inLogs(logs, 'LogNotice', {
+          expectEvent(receipt, 'LogNotice', {
             booleanValue: false,
           });
 
@@ -131,9 +131,9 @@ contract('StructuredLinkedList', function ([owner]) {
 
       describe('remove not existent node', function () {
         it('should fail', async function () {
-          const { logs } = await this.list.remove(INVALID_TOKEN_ID);
+          const receipt = await this.list.remove(INVALID_TOKEN_ID);
 
-          expectEvent.inLogs(logs, 'LogNotice', {
+          expectEvent(receipt, 'LogNotice', {
             booleanValue: false,
           });
         });
@@ -141,9 +141,9 @@ contract('StructuredLinkedList', function ([owner]) {
 
       describe('remove the HEAD node', function () {
         it('should fail', async function () {
-          const { logs } = await this.list.remove(HEAD);
+          const receipt = await this.list.remove(HEAD);
 
-          expectEvent.inLogs(logs, 'LogNotice', {
+          expectEvent(receipt, 'LogNotice', {
             booleanValue: false,
           });
         });
@@ -266,9 +266,9 @@ contract('StructuredLinkedList', function ([owner]) {
         context('testing remove', function () {
           describe('remove node', function () {
             beforeEach(async function () {
-              const { logs } = await this.list.remove(tokenId);
+              const receipt = await this.list.remove(tokenId);
 
-              expectEvent.inLogs(logs, 'LogNotice', {
+              expectEvent(receipt, 'LogNotice', {
                 booleanValue: true,
               });
 
@@ -302,9 +302,9 @@ contract('StructuredLinkedList', function ([owner]) {
 
           describe('remove firstNode', function () {
             beforeEach(async function () {
-              const { logs } = await this.list.remove(firstTokenId);
+              const receipt = await this.list.remove(firstTokenId);
 
-              expectEvent.inLogs(logs, 'LogNotice', {
+              expectEvent(receipt, 'LogNotice', {
                 booleanValue: true,
               });
 
@@ -338,9 +338,9 @@ contract('StructuredLinkedList', function ([owner]) {
 
           describe('remove secondNode', function () {
             beforeEach(async function () {
-              const { logs } = await this.list.remove(secondTokenId);
+              const receipt = await this.list.remove(secondTokenId);
 
-              expectEvent.inLogs(logs, 'LogNotice', {
+              expectEvent(receipt, 'LogNotice', {
                 booleanValue: true,
               });
 
@@ -376,9 +376,9 @@ contract('StructuredLinkedList', function ([owner]) {
         context('testing pop', function () {
           describe('popFront', function () {
             beforeEach(async function () {
-              const { logs } = await this.list.popFront();
+              const receipt = await this.list.popFront();
 
-              expectEvent.inLogs(logs, 'LogNotice', {
+              expectEvent(receipt, 'LogNotice', {
                 booleanValue: true,
               });
 
@@ -412,9 +412,9 @@ contract('StructuredLinkedList', function ([owner]) {
 
           describe('popBack', function () {
             beforeEach(async function () {
-              const { logs } = await this.list.popBack();
+              const receipt = await this.list.popBack();
 
-              expectEvent.inLogs(logs, 'LogNotice', {
+              expectEvent(receipt, 'LogNotice', {
                 booleanValue: true,
               });
 
@@ -458,9 +458,9 @@ contract('StructuredLinkedList', function ([owner]) {
 
           describe('pushFront', function () {
             beforeEach(async function () {
-              const { logs } = await this.list.pushFront(thirdTokenId);
+              const receipt = await this.list.pushFront(thirdTokenId);
 
-              expectEvent.inLogs(logs, 'LogNotice', {
+              expectEvent(receipt, 'LogNotice', {
                 booleanValue: true,
               });
 
@@ -483,9 +483,9 @@ contract('StructuredLinkedList', function ([owner]) {
 
           describe('pushBack', function () {
             beforeEach(async function () {
-              const { logs } = await this.list.pushBack(thirdTokenId);
+              const receipt = await this.list.pushBack(thirdTokenId);
 
-              expectEvent.inLogs(logs, 'LogNotice', {
+              expectEvent(receipt, 'LogNotice', {
                 booleanValue: true,
               });
 
@@ -683,9 +683,9 @@ contract('StructuredLinkedList', function ([owner]) {
         context('testing remove', function () {
           describe('remove node', function () {
             beforeEach(async function () {
-              const { logs } = await this.list.remove(tokenId);
+              const receipt = await this.list.remove(tokenId);
 
-              expectEvent.inLogs(logs, 'LogNotice', {
+              expectEvent(receipt, 'LogNotice', {
                 booleanValue: true,
               });
 
@@ -719,9 +719,9 @@ contract('StructuredLinkedList', function ([owner]) {
 
           describe('remove firstNode', function () {
             beforeEach(async function () {
-              const { logs } = await this.list.remove(firstTokenId);
+              const receipt = await this.list.remove(firstTokenId);
 
-              expectEvent.inLogs(logs, 'LogNotice', {
+              expectEvent(receipt, 'LogNotice', {
                 booleanValue: true,
               });
 
@@ -755,9 +755,9 @@ contract('StructuredLinkedList', function ([owner]) {
 
           describe('remove secondNode', function () {
             beforeEach(async function () {
-              const { logs } = await this.list.remove(secondTokenId);
+              const receipt = await this.list.remove(secondTokenId);
 
-              expectEvent.inLogs(logs, 'LogNotice', {
+              expectEvent(receipt, 'LogNotice', {
                 booleanValue: true,
               });
 

@@ -13,9 +13,11 @@ jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
+    env:
+      FORCE_COLOR: 1
     steps:
       - name: Setup Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         
       - name: Setup Environment
         uses: ./.github/actions/setup
@@ -26,9 +28,11 @@ jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
+    env:
+      FORCE_COLOR: 1
     steps:
       - name: Setup Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         
       - name: Setup Environment
         uses: ./.github/actions/setup
@@ -39,9 +43,11 @@ jobs:
   coverage:
     name: Coverage
     runs-on: ubuntu-latest
+    env:
+      FORCE_COLOR: 1
     steps:
       - name: Setup Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         
       - name: Setup Environment
         uses: ./.github/actions/setup
@@ -51,3 +57,34 @@ jobs:
         
       - name: Post to Codecov
         uses: codecov/codecov-action@v3
+
+  slither:
+    name: Slither
+    runs-on: ubuntu-latest
+    env:
+      FORCE_COLOR: 1
+    steps:
+      - name: Setup Code
+        uses: actions/checkout@v4
+
+      - name: Setup Environment
+        uses: ./.github/actions/setup
+
+      - name: Run Slither
+        uses: crytic/slither-action@v0.3.0
+        with:
+          node-version: 18
+
+  codespell:
+    name: Codespell
+    runs-on: ubuntu-latest
+    env:
+      FORCE_COLOR: 1
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run CodeSpell
+        uses: codespell-project/actions-codespell@v2.0
+        with:
+          check_hidden: true
+          check_filenames: true
+          skip: .git,package-lock.json

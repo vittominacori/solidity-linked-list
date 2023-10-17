@@ -5,13 +5,14 @@ module.exports = {
   description: 'An utility library for using sorted linked list data structures in your Solidity project',
   base: '/solidity-linked-list/',
   plugins: [
-    ['google-gtag', {
-      ga: vars.gaId,
-    }]
+    [
+      'google-gtag',
+      {
+        ga: vars.gaId,
+      },
+    ],
   ],
-  head: [
-    ['link', { rel: 'icon', href: '/favicon.ico' }],
-  ],
+  head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
   themeConfig: {
     repo: 'vittominacori/solidity-linked-list',
     sidebar: 'auto',
