@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: Setup Code
         uses: actions/checkout@v4
-        
+
       - name: Setup Environment
         uses: ./.github/actions/setup
 
@@ -33,7 +33,7 @@ jobs:
     steps:
       - name: Setup Code
         uses: actions/checkout@v4
-        
+
       - name: Setup Environment
         uses: ./.github/actions/setup
 
@@ -48,13 +48,13 @@ jobs:
     steps:
       - name: Setup Code
         uses: actions/checkout@v4
-        
+
       - name: Setup Environment
         uses: ./.github/actions/setup
-        
+
       - name: Run Coverage
         run: npm run coverage
-        
+
       - name: Post to Codecov
         uses: codecov/codecov-action@v3
 

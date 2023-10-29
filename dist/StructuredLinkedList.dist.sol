@@ -1,5 +1,13 @@
 // SPDX-License-Identifier: MIT
 
+// Sources flattened with hardhat v2.18.3 https://hardhat.org
+
+
+
+// File contracts/StructuredLinkedList.sol
+
+// Original license: SPDX_License_Identifier: MIT
+
 pragma solidity ^0.8.0;
 
 interface IStructureInterface {
