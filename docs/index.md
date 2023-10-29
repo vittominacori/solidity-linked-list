@@ -10,7 +10,7 @@ function getValue(uint256 _id) external view returns (uint256)
 
 ## StructuredLinkedList
 
-_An utility library for using sorted linked list data structures in your Solidity project._
+_An utility library for working with sorted linked list data structures in your Solidity project._
 
 ### List
 

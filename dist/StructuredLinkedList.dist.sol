@@ -17,7 +17,7 @@ interface IStructureInterface {
 /**
  * @title StructuredLinkedList
  * @author Vittorio Minacori (https://github.com/vittominacori)
- * @dev An utility library for using sorted linked list data structures in your Solidity project.
+ * @dev An utility library for working with sorted linked list data structures in your Solidity project.
  */
 library StructuredLinkedList {
     struct List {
