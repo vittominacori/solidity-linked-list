@@ -20,7 +20,7 @@ contract StructuredLinkedListMock {
     event LogNotice(bool booleanValue);
 
     /*
-     * @dev Utility function to create a structure
+     * @dev Utility function to create a structure.
      */
     function createStructure(uint256 _value) public {
         progressiveId = progressiveId + 1;
@@ -28,7 +28,7 @@ contract StructuredLinkedListMock {
     }
 
     /*
-     * @dev This function must return the value basing on we are sorted list
+     * @dev This function must return the value basing on we are sorted list.
      */
     function getValue(uint256 _id) public view returns (uint256) {
         return _structureMap[_id].value;
