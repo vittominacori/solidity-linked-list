@@ -57,6 +57,8 @@ jobs:
 
       - name: Post to Codecov
         uses: codecov/codecov-action@v4
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
   slither:
     name: Slither
