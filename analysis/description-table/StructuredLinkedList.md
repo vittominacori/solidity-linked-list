@@ -5,7 +5,7 @@
 
 |  File Name  |  SHA-1 Hash  |
 |-------------|--------------|
-| dist/StructuredLinkedList.dist.sol | [object Promise] |
+| dist/StructuredLinkedList.dist.sol | 74b7b820c2b949df95816f33feaed5562611018e |
 
 
 ### Contracts Description Table

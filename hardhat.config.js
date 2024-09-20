@@ -7,7 +7,7 @@ require('solidity-docgen');
 module.exports = {
   defaultNetwork: 'hardhat',
   solidity: {
-    version: '0.8.26',
+    version: '0.8.27',
     settings: {
       evmVersion: 'cancun',
       optimizer: {
@@ -21,11 +21,13 @@ module.exports = {
     exclude: ['mocks', 'examples'],
   },
   exposed: {
-    exclude: [],
+    imports: false,
+    initializers: true,
+    exclude: ['vendor/**/*'],
   },
   gasReporter: {
     enabled: true,
-    excludeContracts: ['examples', '@openzeppelin/contracts'],
+    excludeContracts: [],
     showMethodSig: true,
     trackGasDeltas: true,
   },
