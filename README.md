@@ -5,7 +5,7 @@
 [![Coverage Status](https://codecov.io/gh/vittominacori/solidity-linked-list/graph/badge.svg)](https://codecov.io/gh/vittominacori/solidity-linked-list)
 [![MIT licensed](https://img.shields.io/github/license/vittominacori/solidity-linked-list.svg)](https://github.com/vittominacori/solidity-linked-list/blob/master/LICENSE)
 
-An utility library for working with sorted linked list data structures in your Solidity project.
+A utility library for working with sorted linked list data structures in your Solidity project.
 
 ## Install
 
