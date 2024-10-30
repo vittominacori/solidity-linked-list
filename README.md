@@ -1,7 +1,7 @@
 # Solidity Linked List
 
 [![NPM Package](https://img.shields.io/npm/v/solidity-linked-list.svg?style=flat-square)](https://www.npmjs.org/package/solidity-linked-list)
-[![CI](https://github.com/vittominacori/solidity-linked-list/workflows/CI/badge.svg?branch=master)](https://github.com/vittominacori/solidity-linked-list/actions/)
+[![CI](https://github.com/vittominacori/solidity-linked-list/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/vittominacori/solidity-linked-list/actions/workflows/ci.yml)
 [![Coverage Status](https://codecov.io/gh/vittominacori/solidity-linked-list/graph/badge.svg)](https://codecov.io/gh/vittominacori/solidity-linked-list)
 [![MIT licensed](https://img.shields.io/github/license/vittominacori/solidity-linked-list.svg)](https://github.com/vittominacori/solidity-linked-list/blob/master/LICENSE)
 
