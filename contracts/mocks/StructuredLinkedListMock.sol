@@ -11,8 +11,9 @@ contract StructuredLinkedListMock {
         uint256 value;
     }
 
-    // Mapping from token ID to the structures
+    // Mapping item id to the structure
     mapping(uint256 => BaseStructure) private _structureMap;
+
     uint256 public progressiveId = 0;
 
     StructuredLinkedList.List private _list;
@@ -28,7 +29,7 @@ contract StructuredLinkedListMock {
     }
 
     /*
-     * @dev This function must return the value basing on we are sorted list.
+     * @dev This function should return the value by which we are sorting the list.
      */
     function getValue(uint256 _id) public view returns (uint256) {
         return _structureMap[_id].value;

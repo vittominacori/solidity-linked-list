@@ -1,6 +1,6 @@
 {
   "name": "solidity-linked-list",
-  "version": "6.1.0",
+  "version": "6.2.0",
   "description": "An utility library for working with sorted linked list data structures in your Solidity project.",
   "files": [
     "contracts",
@@ -53,7 +53,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-mocha-no-only": "^1.2.0",
-    "hardhat": "^2.22.11",
+    "hardhat": "^2.22.15",
     "hardhat-exposed": "^0.3.15",
     "hardhat-gas-reporter": "^2.2.1",
     "prettier": "^3.3.3",
@@ -65,6 +65,6 @@
     "solidity-coverage": "^0.8.13",
     "solidity-docgen": "^0.6.0-beta.36",
     "surya": "^0.4.12",
-    "vitepress": "^1.3.4"
+    "vitepress": "^1.4.2"
   }
 }
