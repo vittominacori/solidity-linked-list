@@ -92,5 +92,4 @@ jobs:
         with:
           check_hidden: true
           check_filenames: true
-          ignore_words_file: .codespellignore
           skip: .git,package-lock.json
