@@ -1,6 +1,6 @@
 {
   "name": "solidity-linked-list",
-  "version": "6.3.0",
+  "version": "6.4.0",
   "description": "An utility library for working with sorted linked list data structures in your Solidity project.",
   "files": [
     "contracts",

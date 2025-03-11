@@ -27,10 +27,10 @@
 <text text-anchor="middle" x="446.79" y="-461.5" font-family="Times,serif" font-size="14.00">StructuredLinkedList</text>
 <polyline fill="none" stroke="black" points="229.22,-453.3 664.36,-453.3 "/>
 <text text-anchor="start" x="237.22" y="-436.7" font-family="Times,serif" font-size="14.00">Private:</text>
-<text text-anchor="start" x="237.22" y="-419.9" font-family="Times,serif" font-size="14.00"> &#160;&#160;_NULL: uint256</text>
-<text text-anchor="start" x="237.22" y="-403.1" font-family="Times,serif" font-size="14.00"> &#160;&#160;_HEAD: uint256</text>
-<text text-anchor="start" x="237.22" y="-386.3" font-family="Times,serif" font-size="14.00"> &#160;&#160;_PREV: bool</text>
-<text text-anchor="start" x="237.22" y="-369.5" font-family="Times,serif" font-size="14.00"> &#160;&#160;_NEXT: bool</text>
+<text text-anchor="start" x="237.22" y="-419.9" font-family="Times,serif" font-size="14.00"> &#160;&#160;NULL: uint256</text>
+<text text-anchor="start" x="237.22" y="-403.1" font-family="Times,serif" font-size="14.00"> &#160;&#160;HEAD: uint256</text>
+<text text-anchor="start" x="237.22" y="-386.3" font-family="Times,serif" font-size="14.00"> &#160;&#160;PREV: bool</text>
+<text text-anchor="start" x="237.22" y="-369.5" font-family="Times,serif" font-size="14.00"> &#160;&#160;NEXT: bool</text>
 <polyline fill="none" stroke="black" points="229.22,-361.3 664.36,-361.3 "/>
 <text text-anchor="start" x="237.22" y="-344.7" font-family="Times,serif" font-size="14.00">Private:</text>
 <text text-anchor="start" x="237.22" y="-327.9" font-family="Times,serif" font-size="14.00"> &#160;&#160;&#160;_push(self: List, _node: uint256, _direction: bool): bool</text>

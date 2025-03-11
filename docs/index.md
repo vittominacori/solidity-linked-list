@@ -27,7 +27,7 @@ struct List {
 function insertAfter(struct StructuredLinkedList.List self, uint256 _node, uint256 _new) internal returns (bool)
 ```
 
-_Insert node `_new` beside existing node `_node` in direction `_NEXT`._
+_Insert node `_new` beside existing node `_node` in direction `NEXT`._
 
 #### Parameters
 
@@ -49,7 +49,7 @@ _Insert node `_new` beside existing node `_node` in direction `_NEXT`._
 function insertBefore(struct StructuredLinkedList.List self, uint256 _node, uint256 _new) internal returns (bool)
 ```
 
-_Insert node `_new` beside existing node `_node` in direction `_PREV`._
+_Insert node `_new` beside existing node `_node` in direction `PREV`._
 
 #### Parameters
 
@@ -281,7 +281,7 @@ _Returns the link of a node `_node` in direction `_direction`._
 function getNextNode(struct StructuredLinkedList.List self, uint256 _node) internal view returns (bool, uint256)
 ```
 
-_Returns the link of a node `_node` in direction `_NEXT`._
+_Returns the link of a node `_node` in direction `NEXT`._
 
 #### Parameters
 
@@ -303,7 +303,7 @@ _Returns the link of a node `_node` in direction `_NEXT`._
 function getPreviousNode(struct StructuredLinkedList.List self, uint256 _node) internal view returns (bool, uint256)
 ```
 
-_Returns the link of a node `_node` in direction `_PREV`._
+_Returns the link of a node `_node` in direction `PREV`._
 
 #### Parameters
 
