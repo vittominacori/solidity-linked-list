@@ -5,7 +5,7 @@
 
 |  File Name  |  SHA-1 Hash  |
 |-------------|--------------|
-| dist/StructuredLinkedList.dist.sol | bd7d26090b0f82f8b05cb60c489c2c5de15c208f |
+| dist/StructuredLinkedList.dist.sol | 97236cff19bc52b92d35deaac4552ba1ce7b4a45 |
 
 
 ### Contracts Description Table
