@@ -7,16 +7,31 @@
 
 An utility library for working with sorted linked list data structures in your Solidity project.
 
-## Install
+## Installation
+
+### Hardhat
 
 ```bash
 npm install solidity-linked-list
 ```
 
+### Foundry
+
+```bash
+forge install vittominacori/solidity-linked-list
+```
+
+Add the below in `remappings.txt`:
+
+```bash
+solidity-linked-list/contracts/=lib/solidity-linked-list/contracts/
+```
+
+
 ## Usage
 
 ```solidity
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.20;
 
 import {StructuredLinkedList} from "solidity-linked-list/contracts/StructuredLinkedList.sol";
 

@@ -1,4 +1,6 @@
+require('@nomicfoundation/hardhat-chai-matchers');
 require('@nomiclabs/hardhat-truffle5');
+require('@nomicfoundation/hardhat-foundry');
 require('hardhat-exposed');
 require('hardhat-gas-reporter');
 require('solidity-coverage');
@@ -7,9 +9,9 @@ require('solidity-docgen');
 module.exports = {
   defaultNetwork: 'hardhat',
   solidity: {
-    version: '0.8.28',
+    version: '0.8.30',
     settings: {
-      evmVersion: 'cancun',
+      evmVersion: 'prague',
       optimizer: {
         enabled: true,
         runs: 200,
@@ -21,9 +23,7 @@ module.exports = {
     exclude: ['mocks', 'examples'],
   },
   exposed: {
-    imports: false,
-    initializers: true,
-    exclude: ['vendor/**/*'],
+    exclude: [],
   },
   gasReporter: {
     enabled: true,

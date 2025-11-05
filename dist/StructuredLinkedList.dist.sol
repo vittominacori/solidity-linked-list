@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-// Sources flattened with hardhat v2.22.19 https://hardhat.org
+// Sources flattened with hardhat v2.26.5 https://hardhat.org
 
 
 
@@ -8,7 +8,7 @@
 
 // Original license: SPDX_License_Identifier: MIT
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.20;
 
 interface IStructureInterface {
     function getValue(uint256 _id) external view returns (uint256);
